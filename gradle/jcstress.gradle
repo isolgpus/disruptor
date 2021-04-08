@@ -1,8 +1,0 @@
-//
-// Configure JCStress
-//
-
-jcstress {
-    includeTests = true
-    mode = project.getProperties().getOrDefault("mode", "default")
-}
