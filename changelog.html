@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="generator" content="Asciidoctor 2.0.12">
+<meta name="author" content="LMAX Development Team">
 <title>Changelog</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -47,7 +48,7 @@ textarea{overflow:auto;vertical-align:top}
 table{border-collapse:collapse;border-spacing:0}
 *,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
 html,body{font-size:100%}
-body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
 a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
@@ -62,10 +63,8 @@ img{-ms-interpolation-mode:bicubic}
 img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
-.center{margin-left:auto;margin-right:auto}
-.stretch{width:100%}
 .subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
-div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
 a{color:#2156a5;text-decoration:underline;line-height:inherit}
 a:hover,a:focus{color:#1d4b8f}
 a img{border:0}
@@ -105,19 +104,22 @@ h1{font-size:2.75em}
 h2{font-size:2.3125em}
 h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
 h4{font-size:1.4375em}}
-table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede;word-wrap:normal}
 table thead,table tfoot{background:#f7f8f7}
 table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt{background:#f8f8f7}
-table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
 .clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
 .clearfix::after,.float-group::after{clear:both}
-:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
-:not(pre)>code.nobreak{word-wrap:normal}
-:not(pre)>code.nowrap{white-space:nowrap}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
 pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
 pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
 pre>code{display:block}
@@ -182,7 +184,7 @@ body.toc2.toc-right{padding-left:0;padding-right:20em}}
 #content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
 #content #toc>:first-child{margin-top:0}
 #content #toc>:last-child{margin-bottom:0}
-#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
 #footer-text{color:rgba(255,255,255,.8);line-height:1.44}
 #content{margin-bottom:.625em}
 .sect1{padding-bottom:.625em}
@@ -205,7 +207,7 @@ table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font
 .admonitionblock>table td.icon{text-align:center;width:80px}
 .admonitionblock>table td.icon img{max-width:none}
 .admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
-.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
 .exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
 .exampleblock>.content>:first-child{margin-top:0}
@@ -215,7 +217,7 @@ table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font
 .sidebarblock>:last-child{margin-bottom:0}
 .sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
 .exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
-.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
 @media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
 @media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
 .literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
@@ -261,21 +263,20 @@ pre.pygments .lineno::before{content:"";margin-right:-.125em}
 .quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
 .quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
 .quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
-table.tableblock{max-width:100%;border-collapse:separate}
 p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
 td.tableblock>.content>:last-child{margin-bottom:-1.25em}
-td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
 table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
-table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
-table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
-table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
-table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
-table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
-table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
-table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
 table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
 table.frame-sides{border-width:0 1px}
-table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
 table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
 th.halign-left,td.halign-left{text-align:left}
 th.halign-right,td.halign-right{text-align:right}
@@ -284,7 +285,7 @@ th.valign-top,td.valign-top{vertical-align:top}
 th.valign-bottom,td.valign-bottom{vertical-align:bottom}
 th.valign-middle,td.valign-middle{vertical-align:middle}
 table thead th,table tfoot th{font-weight:bold}
-tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th{background:#f7f8f7}
 tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
 p.tableblock>code:only-child{background:none;padding:0}
 p.tableblock{font-size:1em}
@@ -313,6 +314,7 @@ ol.lowergreek{list-style-type:lower-greek}
 .hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
 td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
 td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
 .literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
 .colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
 .colist td:not([class]):first-child img{max-width:none}
@@ -385,7 +387,7 @@ a span.icon>.fa{cursor:inherit}
 .admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
 .admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
 .admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
-.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:50%;border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
 .conum[data-value] *{color:#fff!important}
 .conum[data-value]+b{display:none}
 .conum[data-value]::after{content:attr(data-value)}
@@ -412,6 +414,7 @@ thead{display:table-header-group}
 svg{max-width:100%}
 p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
 h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
 #toc,.sidebarblock,.exampleblock>.content{background:none!important}
 #toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
 body.book #header{text-align:center}
@@ -435,18 +438,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
 <h1>Changelog</h1>
 <div class="details">
+<span id="author" class="author">LMAX Development Team</span><br>
+<span id="email" class="email"></span><br>
 <span id="revnumber">version 4.0.0-SNAPSHOT</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_version_3_x">Version 3.x</a>
-<ul class="sectlevel2">
+<li><a href="#_4_0_0">4.0.0</a></li>
+<li><a href="#_3_4_3">3.4.3</a></li>
 <li><a href="#_3_4_2">3.4.2</a></li>
 <li><a href="#_3_4_1">3.4.1</a></li>
 <li><a href="#_3_4_0">3.4.0</a></li>
@@ -470,10 +476,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_3_0_0_beta3_released_20_feb_2013">3.0.0.beta3 Released (20-Feb-2013)</a></li>
 <li><a href="#_3_0_0_beta2_released_7_jan_2013">3.0.0.beta2 Released (7-Jan-2013)</a></li>
 <li><a href="#_3_0_0_beta1_released_3_jan_2013">3.0.0.beta1 Released (3-Jan-2013)</a></li>
-</ul>
-</li>
-<li><a href="#_version_2_x">Version 2.x</a>
-<ul class="sectlevel2">
 <li><a href="#_2_10_3_released_22_aug_2012">2.10.3 Released (22-Aug-2012)</a></li>
 <li><a href="#_2_10_2_released_21_aug_2012">2.10.2 Released (21-Aug-2012)</a></li>
 <li><a href="#_2_10_1_6_june_2012">2.10.1 (6-June-2012)</a></li>
@@ -488,10 +490,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_2_0_2">2.0.2</a></li>
 <li><a href="#_2_0_1">2.0.1</a></li>
 <li><a href="#_2_0_0">2.0.0</a></li>
-</ul>
-</li>
-<li><a href="#_version_1_x">Version 1.x</a>
-<ul class="sectlevel2">
 <li><a href="#_1_2_2">1.2.2</a></li>
 <li><a href="#_1_2_1">1.2.1</a></li>
 <li><a href="#_1_2_0">1.2.0</a></li>
@@ -502,16 +500,106 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_1_0_6">1.0.6</a></li>
 <li><a href="#_1_0_5">1.0.5</a></li>
 </ul>
-</li>
-</ul>
 </div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_version_3_x">Version 3.x</h2>
+<h2 id="_4_0_0">4.0.0</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_3_4_2">3.4.2</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Minimum Java version now 11</p>
+</li>
+<li>
+<p>Issue #323 - <code>WorkerPool</code> and <code>WorkProcessor</code> have been removed, no more <code>Disruptor::handleEventsWithWorkerPool</code></p>
+</li>
+<li>
+<p><code>Disruptor</code> constructors using <code>Executor</code> have been removed. Use <code>ThreadFactory</code> instead.</p>
+</li>
+<li>
+<p>Rolled up event handling extension interfaces on to <code>EventHandler</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>BatchStartAware</code></p>
+</li>
+<li>
+<p><code>LifecycleAware</code></p>
+</li>
+<li>
+<p><code>SequenceReportingEventHandler</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>FatalExceptionHandler</code> and <code>IgnoreExceptionHandler</code> now use the JDK 9 Platform Logging API, i.e. <code>System.Logger</code></p>
+</li>
+<li>
+<p>Add rewind batch feature to the <code>BatchEventProcessor</code></p>
+</li>
+<li>
+<p>Add a maximum batch size argument to <code>BatchEventProcessor</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>EventHandler::onBatchStart</code> now gets both the <code>batchSize</code> as well as <code>queueDepth</code> (previously it had <code>batchSize</code> which reported queue depth)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Added documentation to <code>EventPoller</code></p>
+</li>
+<li>
+<p><code>Util::log2</code> throws if passed a non-positive argument</p>
+</li>
+<li>
+<p>Deprecations</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Deprecated <code>ThreadHints.onSpinWait()</code></p>
+</li>
+<li>
+<p>Deprecated <code>Disruptor.handleExceptionsWith()</code> - this had been javadoc deprecated since 2015 but not in the code</p>
+</li>
+<li>
+<p>Removed previously deprecated methods</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Ringbuffer.resetTo()</code></p>
+</li>
+<li>
+<p><code>ConsumerRepository.getLastSequenceInChain()</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_4_3">3.4.3</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Add Automatic-Module-Name to MANIFEST.MF</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_4_2">3.4.2</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -520,8 +608,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_4_1">3.4.1</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_4_1">3.4.1</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -530,8 +620,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_4_0">3.4.0</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_4_0">3.4.0</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -546,8 +638,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_3_8">3.3.8</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_3_8">3.3.8</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -556,8 +650,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_3_7">3.3.7</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_3_7">3.3.7</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -575,8 +671,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_3_6">3.3.6</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_3_6">3.3.6</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -591,8 +689,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_3_5">3.3.5</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_3_5">3.3.5</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -607,8 +707,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_3_4">3.3.4</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_3_4">3.3.4</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -620,8 +722,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_3_3">3.3.3</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_3_3">3.3.3</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -633,8 +737,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_3_2">3.3.2</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_3_2">3.3.2</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -646,8 +752,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_3_1">3.3.1</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_3_1">3.3.1</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -659,8 +767,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_3_0">3.3.0</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_3_0">3.3.0</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -681,8 +791,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_2_1_released_10_mar_2014">3.2.1 Released (10-Mar-2014)</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_2_1_released_10_mar_2014">3.2.1 Released (10-Mar-2014)</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -709,8 +821,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_2_0_released_13_aug_2013">3.2.0 Released (13-Aug-2013)</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_2_0_released_13_aug_2013">3.2.0 Released (13-Aug-2013)</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -728,8 +842,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_1_1_released_9_jul_2013">3.1.1 Released (9-Jul-2013)</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_1_1_released_9_jul_2013">3.1.1 Released (9-Jul-2013)</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -738,8 +854,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_1_0_released_17_jun_2013">3.1.0 Released (17-Jun-2013)</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_1_0_released_17_jun_2013">3.1.0 Released (17-Jun-2013)</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -754,8 +872,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_0_1_released_16_apr_2013">3.0.1 Released (16-Apr-2013)</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_0_1_released_16_apr_2013">3.0.1 Released (16-Apr-2013)</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -776,8 +896,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_0_0_released_10_apr_2013">3.0.0 Released (10-Apr-2013)</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_0_0_released_10_apr_2013">3.0.0 Released (10-Apr-2013)</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -795,8 +917,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_0_0_beta5_released_08_apr_2013">3.0.0.beta5 Released (08-Apr-2013)</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_0_0_beta5_released_08_apr_2013">3.0.0.beta5 Released (08-Apr-2013)</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -805,8 +929,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_0_0_beta4_released_08_apr_2013">3.0.0.beta4 Released (08-Apr-2013)</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_0_0_beta4_released_08_apr_2013">3.0.0.beta4 Released (08-Apr-2013)</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -815,8 +941,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_0_0_beta3_released_20_feb_2013">3.0.0.beta3 Released (20-Feb-2013)</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_0_0_beta3_released_20_feb_2013">3.0.0.beta3 Released (20-Feb-2013)</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -834,8 +962,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_0_0_beta2_released_7_jan_2013">3.0.0.beta2 Released (7-Jan-2013)</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_0_0_beta2_released_7_jan_2013">3.0.0.beta2 Released (7-Jan-2013)</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -850,8 +980,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_0_0_beta1_released_3_jan_2013">3.0.0.beta1 Released (3-Jan-2013)</h3>
+</div>
+<div class="sect1">
+<h2 id="_3_0_0_beta1_released_3_jan_2013">3.0.0.beta1 Released (3-Jan-2013)</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -897,12 +1029,9 @@ RingBuffer.getPublished for consumers.</p>
 </div>
 </div>
 </div>
-</div>
 <div class="sect1">
-<h2 id="_version_2_x">Version 2.x</h2>
+<h2 id="_2_10_3_released_22_aug_2012">2.10.3 Released (22-Aug-2012)</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_2_10_3_released_22_aug_2012">2.10.3 Released (22-Aug-2012)</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -911,8 +1040,10 @@ RingBuffer.getPublished for consumers.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_2_10_2_released_21_aug_2012">2.10.2 Released (21-Aug-2012)</h3>
+</div>
+<div class="sect1">
+<h2 id="_2_10_2_released_21_aug_2012">2.10.2 Released (21-Aug-2012)</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -927,8 +1058,10 @@ RingBuffer.getPublished for consumers.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_2_10_1_6_june_2012">2.10.1 (6-June-2012)</h3>
+</div>
+<div class="sect1">
+<h2 id="_2_10_1_6_june_2012">2.10.1 (6-June-2012)</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -940,8 +1073,10 @@ RingBuffer.getPublished for consumers.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_2_10_13_may_2012">2.10 (13-May-2012)</h3>
+</div>
+<div class="sect1">
+<h2 id="_2_10_13_may_2012">2.10 (13-May-2012)</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -965,8 +1100,10 @@ RingBuffer.getPublished for consumers.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_2_9_8_apr_2012">2.9 (8-Apr-2012)</h3>
+</div>
+<div class="sect1">
+<h2 id="_2_9_8_apr_2012">2.9 (8-Apr-2012)</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -981,8 +1118,10 @@ RingBuffer.getPublished for consumers.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_2_8_6_feb_2012">2.8 (6-Feb-2012)</h3>
+</div>
+<div class="sect1">
+<h2 id="_2_8_6_feb_2012">2.8 (6-Feb-2012)</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -997,8 +1136,10 @@ RingBuffer.getPublished for consumers.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_2_7_1_21_dec_2011">2.7.1  (21-Dec-2011)</h3>
+</div>
+<div class="sect1">
+<h2 id="_2_7_1_21_dec_2011">2.7.1  (21-Dec-2011)</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -1007,8 +1148,10 @@ RingBuffer.getPublished for consumers.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_2_7_12_nov_2011">2.7 (12-Nov-2011)</h3>
+</div>
+<div class="sect1">
+<h2 id="_2_7_12_nov_2011">2.7 (12-Nov-2011)</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -1035,8 +1178,10 @@ RingBuffer.getPublished for consumers.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_2_6">2.6</h3>
+</div>
+<div class="sect1">
+<h2 id="_2_6">2.6</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -1054,8 +1199,10 @@ RingBuffer.getPublished for consumers.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_2_5_1">2.5.1</h3>
+</div>
+<div class="sect1">
+<h2 id="_2_5_1">2.5.1</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -1073,8 +1220,10 @@ RingBuffer.getPublished for consumers.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_2_5">2.5</h3>
+</div>
+<div class="sect1">
+<h2 id="_2_5">2.5</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -1104,8 +1253,10 @@ RingBuffer.getPublished for consumers.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_2_0_2">2.0.2</h3>
+</div>
+<div class="sect1">
+<h2 id="_2_0_2">2.0.2</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -1114,8 +1265,10 @@ RingBuffer.getPublished for consumers.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_2_0_1">2.0.1</h3>
+</div>
+<div class="sect1">
+<h2 id="_2_0_1">2.0.1</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -1130,8 +1283,10 @@ RingBuffer.getPublished for consumers.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_2_0_0">2.0.0</h3>
+</div>
+<div class="sect1">
+<h2 id="_2_0_0">2.0.0</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -1171,12 +1326,9 @@ RingBuffer.getPublished for consumers.</p>
 </div>
 </div>
 </div>
-</div>
 <div class="sect1">
-<h2 id="_version_1_x">Version 1.x</h2>
+<h2 id="_1_2_2">1.2.2</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_1_2_2">1.2.2</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1185,8 +1337,10 @@ RingBuffer.getPublished for consumers.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_1_2_1">1.2.1</h3>
+</div>
+<div class="sect1">
+<h2 id="_1_2_1">1.2.1</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -1198,8 +1352,10 @@ RingBuffer.getPublished for consumers.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_1_2_0">1.2.0</h3>
+</div>
+<div class="sect1">
+<h2 id="_1_2_0">1.2.0</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -1211,8 +1367,10 @@ RingBuffer.getPublished for consumers.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_1_1_0">1.1.0</h3>
+</div>
+<div class="sect1">
+<h2 id="_1_1_0">1.1.0</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -1224,8 +1382,10 @@ RingBuffer.getPublished for consumers.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_1_0_9">1.0.9</h3>
+</div>
+<div class="sect1">
+<h2 id="_1_0_9">1.0.9</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -1237,8 +1397,10 @@ RingBuffer.getPublished for consumers.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_1_0_8">1.0.8</h3>
+</div>
+<div class="sect1">
+<h2 id="_1_0_8">1.0.8</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -1247,8 +1409,10 @@ RingBuffer.getPublished for consumers.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_1_0_7">1.0.7</h3>
+</div>
+<div class="sect1">
+<h2 id="_1_0_7">1.0.7</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -1257,8 +1421,10 @@ RingBuffer.getPublished for consumers.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_1_0_6">1.0.6</h3>
+</div>
+<div class="sect1">
+<h2 id="_1_0_6">1.0.6</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -1267,8 +1433,10 @@ RingBuffer.getPublished for consumers.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_1_0_5">1.0.5</h3>
+</div>
+<div class="sect1">
+<h2 id="_1_0_5">1.0.5</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -1282,11 +1450,10 @@ RingBuffer.getPublished for consumers.</p>
 </div>
 </div>
 </div>
-</div>
 <div id="footer">
 <div id="footer-text">
 Version 4.0.0-SNAPSHOT<br>
-Last updated 2021-04-08 12:31:52 UTC
+Last updated 2024-07-18 12:36:22 UTC
 </div>
 </div>
 </body>

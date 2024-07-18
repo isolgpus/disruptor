@@ -6,15 +6,16 @@
 <title>Deprecated List (Disruptor)</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="stylesheet.css" title="Style">
-<link rel="stylesheet" type="text/css" href="jquery/jquery-ui.css" title="Style">
+<link rel="stylesheet" type="text/css" href="jquery/jquery-ui.min.css" title="Style">
+<link rel="stylesheet" type="text/css" href="jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="script.js"></script>
 <script type="text/javascript" src="jquery/jszip/dist/jszip.min.js"></script>
 <script type="text/javascript" src="jquery/jszip-utils/dist/jszip-utils.min.js"></script>
 <!--[if IE]>
 <script type="text/javascript" src="jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="jquery/jquery-3.5.1.js"></script>
-<script type="text/javascript" src="jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="jquery/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="jquery/jquery-ui.min.js"></script>
 </head>
 <body>
 <script type="text/javascript"><!--
@@ -44,7 +45,7 @@ loadScripts(document, 'script');</script>
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
-<li><a href="index.html">Overview</a></li>
+<li><a href="com.lmax.disruptor/module-summary.html">Module</a></li>
 <li>Package</li>
 <li>Class</li>
 <li>Use</li>
@@ -113,7 +114,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </tr>
 <tbody>
 <tr class="altColor">
-<th class="colDeprecatedItemName" scope="row"><a href="com/lmax/disruptor/util/ThreadHints.html" title="class in com.lmax.disruptor.util">com.lmax.disruptor.util.ThreadHints</a></th>
+<th class="colDeprecatedItemName" scope="row"><a href="com.lmax.disruptor/com/lmax/disruptor/util/ThreadHints.html" title="class in com.lmax.disruptor.util">com.lmax.disruptor.util.ThreadHints</a></th>
 <td class="colLast">
 <div class="deprecationComment">Use Thread.onSpinWait() directly. This class previously existed to accommodate
  Java versions which do not have Thread.onSpinWait().</div>
@@ -136,24 +137,13 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </tr>
 <tbody>
 <tr class="altColor">
-<th class="colDeprecatedItemName" scope="row"><a href="com/lmax/disruptor/dsl/Disruptor.html#handleExceptionsWith(com.lmax.disruptor.ExceptionHandler)">com.lmax.disruptor.dsl.Disruptor.handleExceptionsWith&#8203;(ExceptionHandler&lt;? super T&gt;)</a></th>
+<th class="colDeprecatedItemName" scope="row"><a href="com.lmax.disruptor/com/lmax/disruptor/dsl/Disruptor.html#handleExceptionsWith(com.lmax.disruptor.ExceptionHandler)">com.lmax.disruptor.dsl.Disruptor.handleExceptionsWith&#8203;(ExceptionHandler&lt;? super T&gt;)</a></th>
 <td class="colLast">
 <div class="deprecationComment">This method only applies to future event handlers. Use setDefaultExceptionHandler instead which applies to existing and new event handlers.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<th class="colDeprecatedItemName" scope="row"><a href="com/lmax/disruptor/RingBuffer.html#isPublished(long)">com.lmax.disruptor.RingBuffer.isPublished&#8203;(long)</a></th>
-<td class="colLast">
-<div class="deprecationComment">Please don't use this method.  It probably won't
- do what you think that it does.</div>
-</td>
-</tr>
-<tr class="altColor">
-<th class="colDeprecatedItemName" scope="row"><a href="com/lmax/disruptor/RingBuffer.html#resetTo(long)">com.lmax.disruptor.RingBuffer.resetTo&#8203;(long)</a></th>
-<td class="colLast"></td>
-</tr>
-<tr class="rowColor">
-<th class="colDeprecatedItemName" scope="row"><a href="com/lmax/disruptor/util/ThreadHints.html#onSpinWait()">com.lmax.disruptor.util.ThreadHints.onSpinWait()</a></th>
+<th class="colDeprecatedItemName" scope="row"><a href="com.lmax.disruptor/com/lmax/disruptor/util/ThreadHints.html#onSpinWait()">com.lmax.disruptor.util.ThreadHints.onSpinWait()</a></th>
 <td class="colLast">
 <div class="deprecationComment">Use Thread.onSpinWait() directly. This method previously existed to accommodate
  Java versions which do not have Thread.onSpinWait().</div>
@@ -176,7 +166,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
-<li><a href="index.html">Overview</a></li>
+<li><a href="com.lmax.disruptor/module-summary.html">Module</a></li>
 <li>Package</li>
 <li>Class</li>
 <li>Use</li>
@@ -210,7 +200,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
 </nav>
-<p class="legalCopy"><small><i>Copyright &#169; 2011 - 2021 LMAX Ltd. All Rights Reserved.</i></small></p>
+<p class="legalCopy"><small><i>Copyright &#169; 2011 - 2024 LMAX Ltd. All Rights Reserved.</i></small></p>
 </footer>
 </body>
 </html>

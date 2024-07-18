@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.lmax.disruptor"},{"l":"com.lmax.disruptor.dsl"},{"l":"com.lmax.disruptor.util"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"m":"com.lmax.disruptor","l":"com.lmax.disruptor"},{"m":"com.lmax.disruptor","l":"com.lmax.disruptor.dsl"},{"m":"com.lmax.disruptor","l":"com.lmax.disruptor.util"}]

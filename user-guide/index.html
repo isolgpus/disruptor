@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="generator" content="Asciidoctor 2.0.12">
 <title>LMAX Disruptor User Guide</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -47,7 +47,7 @@ textarea{overflow:auto;vertical-align:top}
 table{border-collapse:collapse;border-spacing:0}
 *,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
 html,body{font-size:100%}
-body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
 a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
@@ -62,10 +62,8 @@ img{-ms-interpolation-mode:bicubic}
 img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
-.center{margin-left:auto;margin-right:auto}
-.stretch{width:100%}
 .subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
-div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
 a{color:#2156a5;text-decoration:underline;line-height:inherit}
 a:hover,a:focus{color:#1d4b8f}
 a img{border:0}
@@ -105,19 +103,22 @@ h1{font-size:2.75em}
 h2{font-size:2.3125em}
 h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
 h4{font-size:1.4375em}}
-table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede;word-wrap:normal}
 table thead,table tfoot{background:#f7f8f7}
 table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt{background:#f8f8f7}
-table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
 .clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
 .clearfix::after,.float-group::after{clear:both}
-:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
-:not(pre)>code.nobreak{word-wrap:normal}
-:not(pre)>code.nowrap{white-space:nowrap}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
 pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
 pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
 pre>code{display:block}
@@ -182,7 +183,7 @@ body.toc2.toc-right{padding-left:0;padding-right:20em}}
 #content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
 #content #toc>:first-child{margin-top:0}
 #content #toc>:last-child{margin-bottom:0}
-#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
 #footer-text{color:rgba(255,255,255,.8);line-height:1.44}
 #content{margin-bottom:.625em}
 .sect1{padding-bottom:.625em}
@@ -205,7 +206,7 @@ table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font
 .admonitionblock>table td.icon{text-align:center;width:80px}
 .admonitionblock>table td.icon img{max-width:none}
 .admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
-.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
 .exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
 .exampleblock>.content>:first-child{margin-top:0}
@@ -215,7 +216,7 @@ table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font
 .sidebarblock>:last-child{margin-bottom:0}
 .sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
 .exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
-.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
 @media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
 @media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
 .literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
@@ -261,21 +262,20 @@ pre.pygments .lineno::before{content:"";margin-right:-.125em}
 .quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
 .quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
 .quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
-table.tableblock{max-width:100%;border-collapse:separate}
 p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
 td.tableblock>.content>:last-child{margin-bottom:-1.25em}
-td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
 table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
-table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
-table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
-table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
-table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
-table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
-table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
-table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
 table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
 table.frame-sides{border-width:0 1px}
-table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
 table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
 th.halign-left,td.halign-left{text-align:left}
 th.halign-right,td.halign-right{text-align:right}
@@ -284,7 +284,7 @@ th.valign-top,td.valign-top{vertical-align:top}
 th.valign-bottom,td.valign-bottom{vertical-align:bottom}
 th.valign-middle,td.valign-middle{vertical-align:middle}
 table thead th,table tfoot th{font-weight:bold}
-tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th{background:#f7f8f7}
 tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
 p.tableblock>code:only-child{background:none;padding:0}
 p.tableblock{font-size:1em}
@@ -313,6 +313,7 @@ ol.lowergreek{list-style-type:lower-greek}
 .hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
 td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
 td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
 .literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
 .colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
 .colist td:not([class]):first-child img{max-width:none}
@@ -385,7 +386,7 @@ a span.icon>.fa{cursor:inherit}
 .admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
 .admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
 .admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
-.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:50%;border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
 .conum[data-value] *{color:#fff!important}
 .conum[data-value]+b{display:none}
 .conum[data-value]::after{content:attr(data-value)}
@@ -412,6 +413,7 @@ thead{display:table-header-group}
 svg{max-width:100%}
 p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
 h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
 #toc,.sidebarblock,.exampleblock>.content{background:none!important}
 #toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
 body.book #header{text-align:center}
@@ -435,6 +437,222 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sa {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s, pre.rouge .dl {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
@@ -452,14 +670,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_advanced_techniques">Advanced Techniques</a></li>
 </ul>
 </li>
-<li><a href="#_developing_the_disruptor">Developing the Disruptor</a>
-<ul class="sectlevel2">
-<li><a href="#_getting_started_2">Getting Started</a></li>
-<li><a href="#_basic_workflow">Basic workflow</a></li>
-</ul>
-</li>
 <li><a href="#_design_and_implementation">Design and Implementation</a></li>
 <li><a href="#_known_issues">Known Issues</a></li>
+<li><a href="#_batch_rewind">Batch Rewind</a>
+<ul class="sectlevel2">
+<li><a href="#_the_feature">The Feature</a></li>
+<li><a href="#_use_case">Use Case</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -477,7 +695,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_introduction">Introduction</h3>
 <div class="paragraph">
-<p>The best way to understand what the Disruptor is, is to compare it to something well understood and quite similar in purpose.
+<p>The Disruptor is a library that provides a concurrent ring buffer data structure.
+It is designed to provide a low-latency, high-throughput work queue in asynchronous event processing architectures.</p>
+</div>
+<div class="paragraph">
+<p>To understand the benefits of the Disruptor we can compare it to something well understood and quite similar in purpose.
 In the case of the Disruptor this would be Java&#8217;s <code>BlockingQueue</code>.
 Like a queue the purpose of the Disruptor is to move data (e.g. messages or events) between threads within the same process.
 However, there are some key features that the Disruptor provides that distinguish it from a queue.
@@ -486,13 +708,13 @@ They are:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Multicast events to consumers, with consumer dependency graph.</p>
+<p>Multicast events to consumers, with <a href="#_consumer_dependency_graph">consumer dependency graph</a>.</p>
 </li>
 <li>
-<p>Pre-allocate memory for events.</p>
+<p><a href="#_event_pre_allocation">Pre-allocate memory</a> for events.</p>
 </li>
 <li>
-<p>Optionally lock-free.</p>
+<p><a href="#_optionally_lock_free">Optionally lock-free</a>.</p>
 </li>
 </ul>
 </div>
@@ -505,40 +727,41 @@ For those with a DDD bent, think of this as the ubiquitous language of the Disru
 <div class="ulist">
 <ul>
 <li>
-<p>Ring Buffer: The Ring Buffer is often considered the main aspect of the Disruptor, however from 3.0 onwards the Ring Buffer is only responsible for the storing and updating of the data (Events) that move through the Disruptor.
-And for some advanced use cases can be completely replaced by the user.</p>
+<p><strong>Ring Buffer</strong>: The Ring Buffer is often considered the main aspect of the Disruptor.
+However, from 3.0 onwards, the Ring Buffer is only responsible for the storing and updating of the data (<code>Event</code>s) that move through the Disruptor.
+For some advanced use cases, it can even be completely replaced by the user.</p>
 </li>
 <li>
-<p>Sequence: The Disruptor uses Sequences as a means to identify where a particular component is up to.
-Each consumer (EventProcessor) maintains a Sequence as does the Disruptor itself.
-The majority of the concurrent code relies on the the movement of these Sequence values, hence the Sequence supports many of the current features of an AtomicLong.
-In fact the only real difference between the 2 is that the Sequence contains additional functionality to prevent false sharing between Sequences and other values.</p>
+<p><strong>Sequence</strong>: The Disruptor uses <code>Sequence</code>s as a means to identify where a particular component is up to.
+Each consumer (Event Processor) maintains a <code>Sequence</code> as does the Disruptor itself.
+The majority of the concurrent code relies on the movement of these Sequence values, hence the <code>Sequence</code> supports many of the current features of an <code>AtomicLong</code>.
+In fact the only real difference between the two is that the <code>Sequence</code> contains additional functionality to prevent false sharing between <code>Sequence</code>s and other values.</p>
 </li>
 <li>
-<p>Sequencer: The Sequencer is the real core of the Disruptor.
-The 2 implementations (single producer, multi producer) of this interface implement all of the concurrent algorithms use for fast, correct passing of data between producers and consumers.</p>
+<p><strong>Sequencer</strong>: The Sequencer is the real core of the Disruptor.
+The two implementations (single producer, multi producer) of this interface implement all the concurrent algorithms for fast, correct passing of data between producers and consumers.</p>
 </li>
 <li>
-<p>Sequence Barrier: The Sequence Barrier is produced by the Sequencer and contains references to the main published Sequence from the Sequencer and the Sequences of any dependent consumer.
+<p><strong>Sequence Barrier</strong>: The Sequencer produces a Sequence Barrier that contains references to the main published <code>Sequence</code> from the Sequencer and the <code>Sequence</code>s of any dependent consumer.
 It contains the logic to determine if there are any events available for the consumer to process.</p>
 </li>
 <li>
-<p>Wait Strategy: The Wait Strategy determines how a consumer will wait for events to be placed into the Disruptor by a producer.
+<p><strong>Wait Strategy</strong>: The Wait Strategy determines how a consumer will wait for events to be placed into the Disruptor by a producer.
 More details are available in the section about being optionally lock-free.</p>
 </li>
 <li>
-<p>Event: The unit of data passed from producer to consumer.
+<p><strong><code>Event</code></strong>: The unit of data passed from producer to consumer.
 There is no specific code representation of the Event as it defined entirely by the user.</p>
 </li>
 <li>
-<p>EventProcessor: The main event loop for handling events from the Disruptor and has ownership of consumer&#8217;s Sequence.
-There is a single representation called BatchEventProcessor that contains an efficient implementation of the event loop and will call back onto a used supplied implementation of the EventHandler interface.</p>
+<p><strong>Event Processor</strong>: The main event loop for handling events from the Disruptor and has ownership of consumer&#8217;s Sequence.
+There is a single representation called BatchEventProcessor that contains an efficient implementation of the event loop and will call back onto a user supplied implementation of the EventHandler interface.</p>
 </li>
 <li>
-<p>EventHandler: An interface that is implemented by the user and represents a consumer for the Disruptor.</p>
+<p><strong>Event Handler</strong>: An interface that is implemented by the user and represents a consumer for the Disruptor.</p>
 </li>
 <li>
-<p>Producer: This is the user code that calls the Disruptor to enqueue Events.
+<p><strong>Producer</strong>: This is the user code that calls the Disruptor to enqueue <code>Event</code>s.
 This concept also has no representation in the code.</p>
 </li>
 </ul>
@@ -548,7 +771,7 @@ This concept also has no representation in the code.</p>
 </div>
 <div id="user-guide-models" class="imageblock">
 <div class="content">
-<img src="../resources/images/user-guide/models.png" alt="models">
+<img src="./../resources/images/user-guide/models.png" alt="models">
 </div>
 <div class="title">Figure 1. Disruptor with a set of dependent consumers.</div>
 </div>
@@ -556,28 +779,50 @@ This concept also has no representation in the code.</p>
 <div class="sect3">
 <h4 id="_multicast_events">Multicast Events</h4>
 <div class="paragraph">
-<p>This is the biggest behavioural difference between queues and the Disruptor.
-When you have multiple consumers listening on the same Disruptor all events are published to all consumers in contrast to a queue where a single event will only be sent to a single consumer.
-The behaviour of the Disruptor is intended to be used in cases where you need to independent multiple parallel operations on the same data.
-The canonical example from LMAX is where we have three operations, journalling (writing the input data to a persistent journal file), replication (sending the input data to another machine to ensure that there is a remote copy of the data), and business logic (the real processing work).
-The Executor-style event processing, where scale is found by processing different events in parallel at the same is also possible using the WorkerPool.
-Note that is bolted on top of the existing Disruptor classes and is not treated with the same first class support, hence it may not be the most efficient way to achieve that particular goal.</p>
+<p>This is the biggest behavioural difference between queues and the Disruptor.</p>
 </div>
 <div class="paragraph">
-<p>Looking at <a href="#user-guide-models">Figure 1</a> is possible to see that there are 3 Event Handlers listening (<code>JournalConsumer</code>, <code>ReplicationConsumer</code> and <code>ApplicationConsumer</code>) to the Disruptor, each of these Event Handlers will receive all of the messages available in the Disruptor (in the same order).
+<p>When you have multiple consumers listening on the same Disruptor, it publishes all events to all consumers.
+In contrast, a queue will only send a single event to a single consumer.
+You can use this behaviour of the Disruptor when you need to independent multiple parallel operations on the same data.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Example use-case</div>
+<div class="paragraph">
+<p>The canonical example from LMAX is where we have three operations:
+- journalling (writing the input data to a persistent journal file);
+- replication (sending the input data to another machine to ensure that there is a remote copy of the data);
+- and business logic (the real processing work).</p>
+</div>
+<div class="paragraph">
+<p>Looking at <a href="#user-guide-models">Figure 1</a> is possible to see that there are 3 <code>EventHandler</code>s listening (<code>JournalConsumer</code>, <code>ReplicationConsumer</code> and <code>ApplicationConsumer</code>) to the Disruptor.
+Each of these Event Handlers will receive <strong>all</strong> the messages available in the Disruptor (in the same order).
 This allows for work for each of these consumers to operate in parallel.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_consumer_dependency_graph">Consumer Dependency Graph</h4>
 <div class="paragraph">
 <p>To support real world applications of the parallel processing behaviour it was necessary to support co-ordination between the consumers.
-Referring back to the example described above, it necessary to prevent the business logic consumer from making progress until the journalling and replication consumers have completed their tasks.
-We call this concept gating, or more correctly the feature that is a super-set of this behaviour is called gating.
-Gating happens in two places.
-Firstly we need to ensure that the producers do not overrun consumers.
-This is handled by adding the relevant consumers to the Disruptor by calling <code>RingBuffer.addGatingConsumers()</code>.
-Secondly, the case referred to previously is implemented by constructing a SequenceBarrier containing Sequences from the components that must complete their processing first.</p>
+Referring back to the example described above, it is necessary to prevent the business logic consumer from making progress until the journalling and replication consumers have completed their tasks.
+We call this concept &#8220;gating&#8221; (or, more correctly, the feature is a form of &#8220;gating&#8221;).</p>
+</div>
+<div class="paragraph">
+<p>&#8220;Gating&#8221; happens in two places:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Firstly we need to ensure that the producers do not overrun consumers.
+This is handled by adding the relevant consumers to the Disruptor by calling <code>RingBuffer.addGatingConsumers()</code>.</p>
+</li>
+<li>
+<p>Secondly, the case referred to previously is implemented by constructing a SequenceBarrier containing Sequences from the components that must complete their processing first.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Referring to <a href="#user-guide-models">Figure 1</a> there are 3 consumers listening for Events from the Ring Buffer.
@@ -586,21 +831,25 @@ There is a dependency graph in this example.</p>
 <div class="paragraph">
 <p>The ApplicationConsumer depends on the <code>JournalConsumer</code> and <code>ReplicationConsumer</code>.
 This means that the <code>JournalConsumer</code> and <code>ReplicationConsumer</code> can run freely in parallel with each other.
-The dependency relationship can be seen by the connection from the <code>ApplicationConsumer</code>'s <code>SequenceBarrier</code> to the <code>Sequence</code>s of the <code>JournalConsumer</code> and <code>ReplicationConsumer</code>.
-It is also worth noting the relationship that the <code>Sequencer</code> has with the downstream consumers.
+The dependency relationship can be seen by the connection from the <code>ApplicationConsumer</code>'s <code>SequenceBarrier</code> to the <code>Sequence</code>s of the <code>JournalConsumer</code> and <code>ReplicationConsumer</code>.</p>
+</div>
+<div class="paragraph">
+<p>It is also worth noting the relationship that the <code>Sequencer</code> has with the downstream consumers.
 One of its roles is to ensure that publication does not wrap the Ring Buffer.
-To do this none of the downstream consumer may have a <code>Sequence</code> that is lower than the Ring Buffer&#8217;s <code>Sequence</code> less the size of the Ring Buffer.
-However using the graph of dependencies an interesting optimisation can be made.
-Because the <code>ApplicationConsumer</code>'s Sequence is guaranteed to be less than or equal to <code>JournalConsumer</code> and <code>ReplicationConsumer</code> (that is what that dependency relationship ensures) the <code>Sequencer</code> need only look at the Sequence of the <code>ApplicationConsumer</code>.
+To do this none of the downstream consumer may have a <code>Sequence</code> that is lower than the Ring Buffer&#8217;s <code>Sequence</code> less the size of the Ring Buffer.</p>
+</div>
+<div class="paragraph">
+<p>However, by using the graph of dependencies an interesting optimisation can be made.
+Because the <code>ApplicationConsumer</code>'s Sequence is guaranteed to be less than or equal to that of the <code>JournalConsumer</code> and <code>ReplicationConsumer</code> (that is what that dependency relationship ensures) the <code>Sequencer</code> need only look at the Sequence of the <code>ApplicationConsumer</code>.
 In a more general sense the <code>Sequencer</code> only needs to be aware of the <code>Sequence</code>s of the consumers that are the leaf nodes in the dependency tree.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_event_preallocation">Event Preallocation</h4>
+<h4 id="_event_pre_allocation">Event Pre-allocation</h4>
 <div class="paragraph">
-<p>One of the goals of the Disruptor was to enable use within a low latency environment.
+<p>One of the goals of the Disruptor is to enable use within a low latency environment.
 Within low-latency systems it is necessary to reduce or remove memory allocations.
-In Java-based system the purpose is to reduce the number stalls due to garbage collection (in low-latency C/C++ systems, heavy memory allocation is also problematic due to the contention that be placed on the memory allocator).</p>
+In Java-based system the purpose is to reduce the number stalls due to garbage collection <sup class="footnote" id="_footnote_low-latency">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>.</p>
 </div>
 <div class="paragraph">
 <p>To support this the user is able to preallocate the storage required for the events within the Disruptor.
@@ -613,10 +862,25 @@ The Disruptor provides guarantees that these operations will be concurrency-safe
 <h4 id="_optionally_lock_free">Optionally Lock-free</h4>
 <div class="paragraph">
 <p>Another key implementation detail pushed by the desire for low-latency is the extensive use of lock-free algorithms to implement the Disruptor.
-All of the memory visibility and correctness guarantees are implemented using memory barriers and/or compare-and-swap operations.
-There is only one use-case where a actual lock is required and that is within the <code>BlockingWaitStrategy</code>.
-This is done solely for the purpose of using a Condition so that a consuming thread can be parked while waiting for new events to arrive.
-Many low-latency systems will use a busy-wait to avoid the jitter that can be incurred by using a Condition, however in number of system busy-wait operations can lead to significant degradation in performance, especially where the CPU resources are heavily constrained, e.g. web servers in virtualised-environments.</p>
+All memory visibility and correctness guarantees are implemented using memory barriers and/or compare-and-swap operations.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>There is only one use-case where an actual lock is required and that is within the <code>BlockingWaitStrategy</code>.</p>
+</div>
+<div class="paragraph">
+<p>This is done solely for the purpose of using a <strong>condition</strong> so that a consuming thread can be parked while waiting for new events to arrive.
+Many low-latency systems will use a busy-wait to avoid the jitter that can be incurred by using a <strong>condition</strong>; however, in number of system busy-wait operations can lead to significant degradation in performance, especially where the CPU resources are heavily constrained, e.g. web servers in virtualised-environments.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -625,310 +889,409 @@ Many low-latency systems will use a busy-wait to avoid the jitter that can be in
 <div class="sect3">
 <h4 id="_getting_the_disruptor">Getting the Disruptor</h4>
 <div class="paragraph">
-<p>The Disruptor jar file is available from <a href="http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.lmax%22%20AND%20a%3A%22disruptor%22">Maven Central</a> and can be integrated into your dependency manager of choice from there.</p>
+<p>The Disruptor jar file is available from <a href="https://search.maven.org/artifact/com.lmax/disruptor">Maven Central</a> and can be integrated into your dependency manager of choice from there.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_basic_produce_and_consume">Basic Produce and Consume</h4>
 <div class="paragraph">
-<p>To get started with the Disruptor we are going to consider very simple and contrived example, one that will pass a single long value from a producer to a consumer, where the consumer will simply print out the value.
-Firstly we will define the Event that will carry the data.</p>
+<p>To get started with the Disruptor we are going to consider very simple and contrived example.
+We will pass a single <code>long</code> value from a producer to a consumer, and the consumer will simply print out the value.</p>
+</div>
+<div class="paragraph">
+<p>There are currently several styles of writing publishers and consumers for the Disruptor.
+Whilst they are all fundamentally similar, there may be slight nuances in each approach that will be covered below.</p>
+</div>
+<div class="paragraph">
+<p>Firstly we will define the <code>Event</code> that will carry the data and is common to all following examples:</p>
 </div>
 <div class="listingblock">
+<div class="title">Example <code>LongEvent</code></div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">LongEvent</span>
-{
-    <span class="directive">private</span> <span class="type">long</span> value;
+<pre class="rouge highlight"><code data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongEvent</span>
+<span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">long</span> <span class="n">value</span><span class="o">;</span>
 
-    <span class="directive">public</span> <span class="type">void</span> set(<span class="type">long</span> value)
-    {
-        <span class="local-variable">this</span>.value = value;
-    }
-}</code></pre>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="kt">long</span> <span class="n">value</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span>
+    <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"LongEvent{"</span> <span class="o">+</span> <span class="s">"value="</span> <span class="o">+</span> <span class="n">value</span> <span class="o">+</span> <span class="sc">'}'</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>In order to allow the Disruptor to preallocate these events for us, we need to an <code>EventFactory</code> that will perform the construction.</p>
+<p>In order to allow the Disruptor to preallocate these events for us, we need to an <code>EventFactory</code> that will perform the construction.
+This could be a method reference, such as <code>LongEvent::new</code> or an explicit implementation of the <code>EventFactory</code> interface:</p>
 </div>
 <div class="listingblock">
+<div class="title">Example <code>LongEventFactory</code></div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">import</span> <span class="include">com.lmax.disruptor.EventFactory</span>;
-
-<span class="directive">public</span> <span class="type">class</span> <span class="class">LongEventFactory</span> <span class="directive">implements</span> EventFactory&lt;LongEvent&gt;
-{
-    <span class="directive">public</span> LongEvent newInstance()
-    {
-        <span class="keyword">return</span> <span class="keyword">new</span> LongEvent();
-    }
-}</code></pre>
+<pre class="rouge highlight"><code data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongEventFactory</span> <span class="kd">implements</span> <span class="nc">EventFactory</span><span class="o">&lt;</span><span class="nc">LongEvent</span><span class="o">&gt;</span>
+<span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">LongEvent</span> <span class="nf">newInstance</span><span class="o">()</span>
+    <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">LongEvent</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Once we have the event defined we need to create a consumer that will handle these events.
-In our case all we want to do is print the value out the the console.</p>
+<p>Once we have the event defined, we need to create a consumer that will handle these events.
+As an example, we will create an <code>EventHandler</code> that will print the value out to the console.</p>
 </div>
 <div class="listingblock">
+<div class="title">Example <code>LongEventHandler</code></div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">import</span> <span class="include">com.lmax.disruptor.EventHandler</span>;
-
-<span class="directive">public</span> <span class="type">class</span> <span class="class">LongEventHandler</span> <span class="directive">implements</span> <span class="predefined-type">EventHandler</span>&lt;LongEvent&gt;
-{
-    <span class="directive">public</span> <span class="type">void</span> onEvent(LongEvent event, <span class="type">long</span> sequence, <span class="type">boolean</span> endOfBatch)
-    {
-        <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Event: </span><span class="delimiter">&quot;</span></span> + event);
-    }
-}</code></pre>
+<pre class="rouge highlight"><code data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongEventHandler</span> <span class="kd">implements</span> <span class="nc">EventHandler</span><span class="o">&lt;</span><span class="nc">LongEvent</span><span class="o">&gt;</span>
+<span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onEvent</span><span class="o">(</span><span class="nc">LongEvent</span> <span class="n">event</span><span class="o">,</span> <span class="kt">long</span> <span class="n">sequence</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">endOfBatch</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Event: "</span> <span class="o">+</span> <span class="n">event</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>We will need a source for these events, for the sake of an example I am going to assume that the data is coming from some sort of I/O device, e.g. network or file in the form of a <code>ByteBuffer</code>.</p>
+<p>Finally, we will need a source for these events.
+For simplicity, we will assume that the data is coming from some sort of I/O device, e.g. network or file in the form of a <code>ByteBuffer</code>.</p>
 </div>
 <div class="sect4">
-<h5 id="_publishing_using_translators">Publishing Using Translators</h5>
+<h5 id="_publishing">Publishing</h5>
+<div class="sect5">
+<h6 id="publishing-using-lambdas">Using Lambdas</h6>
 <div class="paragraph">
-<p>With version 3.0 of the Disruptor a richer Lambda-style API was added to help developers by encapsulating this complexity within the Ring Buffer, so post-3.0 the preferred approach for publishing messages is via the Event Publisher/Event Translator portion of the API.
-E.g.</p>
+<p>Since version 3.0 of the Disruptor it has been possible to use a Lambda-style API to write publishers.
+This is the preferred approach, as it encapsulates much of the complexity of the alternatives.</p>
 </div>
 <div class="listingblock">
+<div class="title">Publishing events using lambdas</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">import</span> <span class="include">com.lmax.disruptor.RingBuffer</span>;
-<span class="keyword">import</span> <span class="include">com.lmax.disruptor.EventTranslatorOneArg</span>;
+<pre class="rouge highlight"><code data-lang="java"><span class="kn">import</span> <span class="nn">com.lmax.disruptor.dsl.Disruptor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lmax.disruptor.RingBuffer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lmax.disruptor.examples.longevent.LongEvent</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lmax.disruptor.util.DaemonThreadFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.ByteBuffer</span><span class="o">;</span>
 
-<span class="directive">public</span> <span class="type">class</span> <span class="class">LongEventProducerWithTranslator</span>
-{
-    <span class="directive">private</span> <span class="directive">final</span> RingBuffer&lt;LongEvent&gt; ringBuffer;
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongEventMain</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span>
+    <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">bufferSize</span> <span class="o">=</span> <span class="mi">1024</span><span class="o">;</span> <i class="conum" data-value="1"></i><b>(1)</b>
 
-    <span class="directive">public</span> LongEventProducerWithTranslator(RingBuffer&lt;LongEvent&gt; ringBuffer)
-    {
-        <span class="local-variable">this</span>.ringBuffer = ringBuffer;
-    }
+        <span class="nc">Disruptor</span><span class="o">&lt;</span><span class="nc">LongEvent</span><span class="o">&gt;</span> <span class="n">disruptor</span> <span class="o">=</span> <i class="conum" data-value="2"></i><b>(2)</b>
+                <span class="k">new</span> <span class="nc">Disruptor</span><span class="o">&lt;&gt;(</span><span class="nl">LongEvent:</span><span class="o">:</span><span class="k">new</span><span class="o">,</span> <span class="n">bufferSize</span><span class="o">,</span> <span class="nc">DaemonThreadFactory</span><span class="o">.</span><span class="na">INSTANCE</span><span class="o">);</span>
 
-    <span class="directive">private</span> <span class="directive">static</span> <span class="directive">final</span> EventTranslatorOneArg&lt;LongEvent, <span class="predefined-type">ByteBuffer</span>&gt; TRANSLATOR =
-        <span class="keyword">new</span> EventTranslatorOneArg&lt;LongEvent, <span class="predefined-type">ByteBuffer</span>&gt;()
-        {
-            <span class="directive">public</span> <span class="type">void</span> translateTo(LongEvent event, <span class="type">long</span> sequence, <span class="predefined-type">ByteBuffer</span> bb)
-            {
-                event.set(bb.getLong(<span class="integer">0</span>));
-            }
-        };
+        <span class="n">disruptor</span><span class="o">.</span><span class="na">handleEventsWith</span><span class="o">((</span><span class="n">event</span><span class="o">,</span> <span class="n">sequence</span><span class="o">,</span> <span class="n">endOfBatch</span><span class="o">)</span> <span class="o">-&gt;</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Event: "</span> <span class="o">+</span> <span class="n">event</span><span class="o">));</span> <i class="conum" data-value="3"></i><b>(3)</b>
+        <span class="n">disruptor</span><span class="o">.</span><span class="na">start</span><span class="o">();</span> <i class="conum" data-value="4"></i><b>(4)</b>
 
-    <span class="directive">public</span> <span class="type">void</span> onData(<span class="predefined-type">ByteBuffer</span> bb)
-    {
-        ringBuffer.publishEvent(TRANSLATOR, bb);
-    }
-}</code></pre>
+
+        <span class="nc">RingBuffer</span><span class="o">&lt;</span><span class="nc">LongEvent</span><span class="o">&gt;</span> <span class="n">ringBuffer</span> <span class="o">=</span> <span class="n">disruptor</span><span class="o">.</span><span class="na">getRingBuffer</span><span class="o">();</span> <i class="conum" data-value="5"></i><b>(5)</b>
+        <span class="nc">ByteBuffer</span> <span class="n">bb</span> <span class="o">=</span> <span class="nc">ByteBuffer</span><span class="o">.</span><span class="na">allocate</span><span class="o">(</span><span class="mi">8</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">long</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="kc">true</span><span class="o">;</span> <span class="n">l</span><span class="o">++)</span>
+        <span class="o">{</span>
+            <span class="n">bb</span><span class="o">.</span><span class="na">putLong</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">l</span><span class="o">);</span>
+            <span class="n">ringBuffer</span><span class="o">.</span><span class="na">publishEvent</span><span class="o">((</span><span class="n">event</span><span class="o">,</span> <span class="n">sequence</span><span class="o">,</span> <span class="n">buffer</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">event</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">buffer</span><span class="o">.</span><span class="na">getLong</span><span class="o">(</span><span class="mi">0</span><span class="o">)),</span> <span class="n">bb</span><span class="o">);</span>
+            <span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
 </div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Specify the size of the ring buffer, must be power of 2.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Construct the Disruptor</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Connect the handler</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Start the Disruptor, starts all threads running</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Get the ring buffer from the Disruptor to be used for publishing.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Notice that the lambda used for <code>publishEvent()</code> only refers to the parameters that are passed in.</p>
 </div>
 <div class="paragraph">
-<p>The other advantage of this approach is that the translator code can be pulled into a separate class and easily unit tested independently.
-The Disruptor provides a number of different interfaces (<code>EventTranslator</code>, <code>EventTranslatorOneArg</code>, <code>EventTranslatorTwoArg</code>, etc.) that can be implemented to provide translators.
-The reason for is to allow for the translators to be represented as static classes or non-capturing lambda (when Java 8 rolls around) as the arguments to the translation method are passed through the call on the Ring Buffer through to the translator.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_publishing_using_the_legacy_api">Publishing Using the Legacy API</h5>
-<div class="paragraph">
-<p>There is a more "raw" approach that we can use.</p>
+<p>If we were to instead write that code as:</p>
 </div>
 <div class="listingblock">
+<div class="title">Example of a capturing lambda</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">import</span> <span class="include">com.lmax.disruptor.RingBuffer</span>;
-
-<span class="directive">public</span> <span class="type">class</span> <span class="class">LongEventProducer</span>
-{
-    <span class="directive">private</span> <span class="directive">final</span> RingBuffer&lt;LongEvent&gt; ringBuffer;
-
-    <span class="directive">public</span> LongEventProducer(RingBuffer&lt;LongEvent&gt; ringBuffer)
-    {
-        <span class="local-variable">this</span>.ringBuffer = ringBuffer;
-    }
-
-    <span class="directive">public</span> <span class="type">void</span> onData(<span class="predefined-type">ByteBuffer</span> bb)
-    {
-        <span class="type">long</span> sequence = ringBuffer.next();  <span class="comment">// Grab the next sequence</span>
-        <span class="keyword">try</span>
-        {
-            LongEvent event = ringBuffer.get(sequence); <span class="comment">// Get the entry in the Disruptor</span>
-                                                        <span class="comment">// for the sequence</span>
-            event.set(bb.getLong(<span class="integer">0</span>));  <span class="comment">// Fill with data</span>
-        }
-        <span class="keyword">finally</span>
-        {
-            ringBuffer.publish(sequence);
-        }
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>What becomes immediately obvious is that event publication becomes more involved than using a simple queue.
-This is due to the desire for event preallocation.
-It requires (at the lowest level) a 2-phase approach to message publication, i.e. claim the slot in the ring buffer then publish the available data.
-It is also necessary to wrap publication in a try/finally block.
-If we claim a slot in the Ring Buffer (calling <code>RingBuffer.next()</code>) then we must publish this sequence.
-Failing to do so can result in corruption of the state of the Disruptor.
-Specifically, in the multi-producer case this will result in the consumers stalling and being unable to recover without a restart.
-Therefore it is recommended that the <code>EventTranslator</code> APIs be used.</p>
-</div>
-<div class="paragraph">
-<p>The final step is to wire the whole thing together.
-It is possible to wire all of the components manually, however it can be a little bit complicated so a DSL is provided to simplify construction.
-Some of the more complicated options are not available via the DSL, however it is suitable for most circumstances.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">import</span> <span class="include">com.lmax.disruptor.dsl.Disruptor</span>;
-<span class="keyword">import</span> <span class="include">com.lmax.disruptor.RingBuffer</span>;
-<span class="keyword">import</span> <span class="include">com.lmax.disruptor.util.DaemonThreadFactory</span>;
-<span class="keyword">import</span> <span class="include">java.nio.ByteBuffer</span>;
-
-<span class="directive">public</span> <span class="type">class</span> <span class="class">LongEventMain</span>
-{
-    <span class="directive">public</span> <span class="directive">static</span> <span class="type">void</span> main(<span class="predefined-type">String</span><span class="type">[]</span> args) <span class="directive">throws</span> <span class="exception">Exception</span>
-    {
-        <span class="comment">// The factory for the event</span>
-        LongEventFactory factory = <span class="keyword">new</span> LongEventFactory();
-
-        <span class="comment">// Specify the size of the ring buffer, must be power of 2.</span>
-        <span class="type">int</span> bufferSize = <span class="integer">1024</span>;
-
-        <span class="comment">// Construct the Disruptor</span>
-        Disruptor&lt;LongEvent&gt; disruptor = <span class="keyword">new</span> Disruptor&lt;&gt;(factory, bufferSize, DaemonThreadFactory.INSTANCE);
-
-        <span class="comment">// Connect the handler</span>
-        disruptor.handleEventsWith(<span class="keyword">new</span> LongEventHandler());
-
-        <span class="comment">// Start the Disruptor, starts all threads running</span>
-        disruptor.start();
-
-        <span class="comment">// Get the ring buffer from the Disruptor to be used for publishing.</span>
-        RingBuffer&lt;LongEvent&gt; ringBuffer = disruptor.getRingBuffer();
-
-        LongEventProducer producer = <span class="keyword">new</span> LongEventProducer(ringBuffer);
-
-        <span class="predefined-type">ByteBuffer</span> bb = <span class="predefined-type">ByteBuffer</span>.allocate(<span class="integer">8</span>);
-        <span class="keyword">for</span> (<span class="type">long</span> l = <span class="integer">0</span>; <span class="predefined-constant">true</span>; l++)
-        {
-            bb.putLong(<span class="integer">0</span>, l);
-            producer.onData(bb);
-            <span class="predefined-type">Thread</span>.sleep(<span class="integer">1000</span>);
-        }
-    }
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_using_java_8">Using Java 8</h5>
-<div class="paragraph">
-<p>One of the design influences of the Disruptor&#8217;s API was that Java 8 was going to rely on the concept of Functional Interfaces to serve as type declarations for Java Lambdas.
-Most of the interface definitions in the Disruptor API fit the requirements of a Functional Interface so that a Lambda can be used instead of a custom class, which can reduce the boiler place required.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">import</span> <span class="include">com.lmax.disruptor.dsl.Disruptor</span>;
-<span class="keyword">import</span> <span class="include">com.lmax.disruptor.RingBuffer</span>;
-<span class="keyword">import</span> <span class="include">com.lmax.disruptor.util.DaemonThreadFactory</span>;
-<span class="keyword">import</span> <span class="include">java.nio.ByteBuffer</span>;
-
-<span class="directive">public</span> <span class="type">class</span> <span class="class">LongEventMain</span>
-{
-    <span class="directive">public</span> <span class="directive">static</span> <span class="type">void</span> main(<span class="predefined-type">String</span><span class="type">[]</span> args) <span class="directive">throws</span> <span class="exception">Exception</span>
-    {
-        <span class="comment">// Specify the size of the ring buffer, must be power of 2.</span>
-        <span class="type">int</span> bufferSize = <span class="integer">1024</span>;
-
-        <span class="comment">// Construct the Disruptor</span>
-        Disruptor&lt;LongEvent&gt; disruptor = <span class="keyword">new</span> Disruptor&lt;&gt;(LongEvent::<span class="keyword">new</span>, bufferSize, DaemonThreadFactory.INSTANCE);
-
-        <span class="comment">// Connect the handler</span>
-        disruptor.handleEventsWith((event, sequence, endOfBatch) -&gt; <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Event: </span><span class="delimiter">&quot;</span></span> + event));
-
-        <span class="comment">// Start the Disruptor, starts all threads running</span>
-        disruptor.start();
-
-        <span class="comment">// Get the ring buffer from the Disruptor to be used for publishing.</span>
-        RingBuffer&lt;LongEvent&gt; ringBuffer = disruptor.getRingBuffer();
-
-        <span class="predefined-type">ByteBuffer</span> bb = <span class="predefined-type">ByteBuffer</span>.allocate(<span class="integer">8</span>);
-        <span class="keyword">for</span> (<span class="type">long</span> l = <span class="integer">0</span>; <span class="predefined-constant">true</span>; l++)
-        {
-            bb.putLong(<span class="integer">0</span>, l);
-            ringBuffer.publishEvent((event, sequence, buffer) -&gt; event.set(buffer.getLong(<span class="integer">0</span>)), bb);
-            <span class="predefined-type">Thread</span>.sleep(<span class="integer">1000</span>);
-        }
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Note how a number of the classes (e.g. handler, translator) are no longer required.
-Also note how the lambda used for <code>publishEvent()</code> only refers to the parameters that are passed in.
-If we were to instead write that code as:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="predefined-type">ByteBuffer</span> bb = <span class="predefined-type">ByteBuffer</span>.allocate(<span class="integer">8</span>);
-<span class="keyword">for</span> (<span class="type">long</span> l = <span class="integer">0</span>; <span class="predefined-constant">true</span>; l++)
-{
-    bb.putLong(<span class="integer">0</span>, l);
-    ringBuffer.publishEvent((event, sequence) -&gt; event.set(bb.getLong(<span class="integer">0</span>)));
-    <span class="predefined-type">Thread</span>.sleep(<span class="integer">1000</span>);
-}</code></pre>
+<pre class="rouge highlight"><code data-lang="java"><span class="nc">ByteBuffer</span> <span class="n">bb</span> <span class="o">=</span> <span class="nc">ByteBuffer</span><span class="o">.</span><span class="na">allocate</span><span class="o">(</span><span class="mi">8</span><span class="o">);</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">long</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="kc">true</span><span class="o">;</span> <span class="n">l</span><span class="o">++)</span>
+<span class="o">{</span>
+    <span class="n">bb</span><span class="o">.</span><span class="na">putLong</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">l</span><span class="o">);</span>
+    <span class="n">ringBuffer</span><span class="o">.</span><span class="na">publishEvent</span><span class="o">((</span><span class="n">event</span><span class="o">,</span> <span class="n">sequence</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">event</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">bb</span><span class="o">.</span><span class="na">getLong</span><span class="o">(</span><span class="mi">0</span><span class="o">)));</span>
+    <span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span>
+<span class="o">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>This would create a capturing lambda, meaning that it would need to instantiate an object to hold the <code>ByteBuffer bb</code> variable as it passes the lambda through to the <code>publishEvent()</code> call.
 This will create additional (unnecessary) garbage, so the call that passes the argument through to the lambda should be preferred if low GC pressure is a requirement.</p>
 </div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
-<p>Give that method references can be used instead of anonymous lamdbas it is possible to rewrite the example in this fashion.</p>
+<p>Given that method references can be used instead of anonymous lambdas, it is possible to rewrite the example in this fashion:</p>
 </div>
 <div class="listingblock">
+<div class="title">Example using method references</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">import</span> <span class="include">com.lmax.disruptor.dsl.Disruptor</span>;
-<span class="keyword">import</span> <span class="include">com.lmax.disruptor.RingBuffer</span>;
-<span class="keyword">import</span> <span class="include">com.lmax.disruptor.util.DaemonThreadFactory</span>;
-<span class="keyword">import</span> <span class="include">java.nio.ByteBuffer</span>;
+<pre class="rouge highlight"><code data-lang="java"><span class="kn">import</span> <span class="nn">com.lmax.disruptor.RingBuffer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lmax.disruptor.dsl.Disruptor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lmax.disruptor.examples.longevent.LongEvent</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lmax.disruptor.util.DaemonThreadFactory</span><span class="o">;</span>
 
-<span class="directive">public</span> <span class="type">class</span> <span class="class">LongEventMain</span>
-{
-    <span class="directive">public</span> <span class="directive">static</span> <span class="type">void</span> handleEvent(LongEvent event, <span class="type">long</span> sequence, <span class="type">boolean</span> endOfBatch)
-    {
-        <span class="predefined-type">System</span>.out.println(event);
-    }
+<span class="kn">import</span> <span class="nn">java.nio.ByteBuffer</span><span class="o">;</span>
 
-    <span class="directive">public</span> <span class="directive">static</span> <span class="type">void</span> translate(LongEvent event, <span class="type">long</span> sequence, <span class="predefined-type">ByteBuffer</span> buffer)
-    {
-        event.set(buffer.getLong(<span class="integer">0</span>));
-    }
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongEventMain</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">handleEvent</span><span class="o">(</span><span class="nc">LongEvent</span> <span class="n">event</span><span class="o">,</span> <span class="kt">long</span> <span class="n">sequence</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">endOfBatch</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">event</span><span class="o">);</span>
+    <span class="o">}</span>
 
-    <span class="directive">public</span> <span class="directive">static</span> <span class="type">void</span> main(<span class="predefined-type">String</span><span class="type">[]</span> args) <span class="directive">throws</span> <span class="exception">Exception</span>
-    {
-        <span class="comment">// Specify the size of the ring buffer, must be power of 2.</span>
-        <span class="type">int</span> bufferSize = <span class="integer">1024</span>;
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">translate</span><span class="o">(</span><span class="nc">LongEvent</span> <span class="n">event</span><span class="o">,</span> <span class="kt">long</span> <span class="n">sequence</span><span class="o">,</span> <span class="nc">ByteBuffer</span> <span class="n">buffer</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="n">event</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">buffer</span><span class="o">.</span><span class="na">getLong</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
+    <span class="o">}</span>
 
-        <span class="comment">// Construct the Disruptor</span>
-        Disruptor&lt;LongEvent&gt; disruptor = <span class="keyword">new</span> Disruptor&lt;&gt;(LongEvent::<span class="keyword">new</span>, bufferSize, DaemonThreadFactory.INSTANCE);
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span>
+    <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">bufferSize</span> <span class="o">=</span> <span class="mi">1024</span><span class="o">;</span>
 
-        <span class="comment">// Connect the handler</span>
-        disruptor.handleEventsWith(LongEventMain::handleEvent);
+        <span class="nc">Disruptor</span><span class="o">&lt;</span><span class="nc">LongEvent</span><span class="o">&gt;</span> <span class="n">disruptor</span> <span class="o">=</span>
+                <span class="k">new</span> <span class="nc">Disruptor</span><span class="o">&lt;&gt;(</span><span class="nl">LongEvent:</span><span class="o">:</span><span class="k">new</span><span class="o">,</span> <span class="n">bufferSize</span><span class="o">,</span> <span class="nc">DaemonThreadFactory</span><span class="o">.</span><span class="na">INSTANCE</span><span class="o">);</span>
+        <span class="n">disruptor</span><span class="o">.</span><span class="na">handleEventsWith</span><span class="o">(</span><span class="nl">LongEventMain:</span><span class="o">:</span><span class="n">handleEvent</span><span class="o">);</span>
+        <span class="n">disruptor</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
 
-        <span class="comment">// Start the Disruptor, starts all threads running</span>
-        disruptor.start();
+        <span class="nc">RingBuffer</span><span class="o">&lt;</span><span class="nc">LongEvent</span><span class="o">&gt;</span> <span class="n">ringBuffer</span> <span class="o">=</span> <span class="n">disruptor</span><span class="o">.</span><span class="na">getRingBuffer</span><span class="o">();</span>
+        <span class="nc">ByteBuffer</span> <span class="n">bb</span> <span class="o">=</span> <span class="nc">ByteBuffer</span><span class="o">.</span><span class="na">allocate</span><span class="o">(</span><span class="mi">8</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">long</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="kc">true</span><span class="o">;</span> <span class="n">l</span><span class="o">++)</span>
+        <span class="o">{</span>
+            <span class="n">bb</span><span class="o">.</span><span class="na">putLong</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">l</span><span class="o">);</span>
+            <span class="n">ringBuffer</span><span class="o">.</span><span class="na">publishEvent</span><span class="o">(</span><span class="nl">LongEventMain:</span><span class="o">:</span><span class="n">translate</span><span class="o">,</span> <span class="n">bb</span><span class="o">);</span>
+            <span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_using_translators">Using Translators</h6>
+<div class="paragraph">
+<p>Prior to version 3.0, the preferred way of publishing messages was via the Event Publisher/Event Translator interfaces:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example <code>LongEventProducer</code></div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kn">import</span> <span class="nn">com.lmax.disruptor.EventTranslatorOneArg</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lmax.disruptor.RingBuffer</span><span class="o">;</span>
 
-        <span class="comment">// Get the ring buffer from the Disruptor to be used for publishing.</span>
-        RingBuffer&lt;LongEvent&gt; ringBuffer = disruptor.getRingBuffer();
+<span class="kn">import</span> <span class="nn">java.nio.ByteBuffer</span><span class="o">;</span>
 
-        <span class="predefined-type">ByteBuffer</span> bb = <span class="predefined-type">ByteBuffer</span>.allocate(<span class="integer">8</span>);
-        <span class="keyword">for</span> (<span class="type">long</span> l = <span class="integer">0</span>; <span class="predefined-constant">true</span>; l++)
-        {
-            bb.putLong(<span class="integer">0</span>, l);
-            ringBuffer.publishEvent(LongEventMain::translate, bb);
-            <span class="predefined-type">Thread</span>.sleep(<span class="integer">1000</span>);
-        }
-    }
-}</code></pre>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongEventProducer</span>
+<span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">RingBuffer</span><span class="o">&lt;</span><span class="nc">LongEvent</span><span class="o">&gt;</span> <span class="n">ringBuffer</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">LongEventProducer</span><span class="o">(</span><span class="nc">RingBuffer</span><span class="o">&lt;</span><span class="nc">LongEvent</span><span class="o">&gt;</span> <span class="n">ringBuffer</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">ringBuffer</span> <span class="o">=</span> <span class="n">ringBuffer</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">EventTranslatorOneArg</span><span class="o">&lt;</span><span class="nc">LongEvent</span><span class="o">,</span> <span class="nc">ByteBuffer</span><span class="o">&gt;</span> <span class="no">TRANSLATOR</span> <span class="o">=</span>
+        <span class="k">new</span> <span class="nc">EventTranslatorOneArg</span><span class="o">&lt;</span><span class="nc">LongEvent</span><span class="o">,</span> <span class="nc">ByteBuffer</span><span class="o">&gt;()</span>
+        <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">translateTo</span><span class="o">(</span><span class="nc">LongEvent</span> <span class="n">event</span><span class="o">,</span> <span class="kt">long</span> <span class="n">sequence</span><span class="o">,</span> <span class="nc">ByteBuffer</span> <span class="n">bb</span><span class="o">)</span>
+            <span class="o">{</span>
+                <span class="n">event</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">bb</span><span class="o">.</span><span class="na">getLong</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
+            <span class="o">}</span>
+        <span class="o">};</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onData</span><span class="o">(</span><span class="nc">ByteBuffer</span> <span class="n">bb</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="n">ringBuffer</span><span class="o">.</span><span class="na">publishEvent</span><span class="o">(</span><span class="no">TRANSLATOR</span><span class="o">,</span> <span class="n">bb</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This approach uses number of extra classes (e.g. handler, translator) that are not explicitly required when using lambdas.
+The advantage of here is that the translator code can be pulled into a separate class and easily unit tested.</p>
+</div>
+<div class="paragraph">
+<p>The Disruptor provides a number of different interfaces (<code>EventTranslator</code>, <code>EventTranslatorOneArg</code>, <code>EventTranslatorTwoArg</code>, etc.) that can be implemented to provide translators.
+This is to allow for the translators to be represented as static classes and lambdas (see <a href="#publishing-using-lambdas">above</a>).
+The arguments to the translation method are passed through the call on the Ring Buffer through to the translator.</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_publishing_using_the_legacy_api">Publishing Using the Legacy API</h5>
+<div class="paragraph">
+<p>There is a more "raw" approach that we can use:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example Legacy <code>LongEventProducer</code></div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kn">import</span> <span class="nn">com.lmax.disruptor.RingBuffer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lmax.disruptor.examples.longevent.LongEvent</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.nio.ByteBuffer</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongEventProducer</span>
+<span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">RingBuffer</span><span class="o">&lt;</span><span class="nc">LongEvent</span><span class="o">&gt;</span> <span class="n">ringBuffer</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">LongEventProducer</span><span class="o">(</span><span class="nc">RingBuffer</span><span class="o">&lt;</span><span class="nc">LongEvent</span><span class="o">&gt;</span> <span class="n">ringBuffer</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">ringBuffer</span> <span class="o">=</span> <span class="n">ringBuffer</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onData</span><span class="o">(</span><span class="nc">ByteBuffer</span> <span class="n">bb</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="kt">long</span> <span class="n">sequence</span> <span class="o">=</span> <span class="n">ringBuffer</span><span class="o">.</span><span class="na">next</span><span class="o">();</span> <i class="conum" data-value="1"></i><b>(1)</b>
+        <span class="k">try</span>
+        <span class="o">{</span>
+            <span class="nc">LongEvent</span> <span class="n">event</span> <span class="o">=</span> <span class="n">ringBuffer</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">sequence</span><span class="o">);</span> <i class="conum" data-value="2"></i><b>(2)</b>
+            <span class="n">event</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">bb</span><span class="o">.</span><span class="na">getLong</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>  <i class="conum" data-value="3"></i><b>(3)</b>
+        <span class="o">}</span>
+        <span class="k">finally</span>
+        <span class="o">{</span>
+            <span class="n">ringBuffer</span><span class="o">.</span><span class="na">publish</span><span class="o">(</span><span class="n">sequence</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Grab the next sequence</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Get the entry in the Disruptor for that sequence</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Fill the entry with data</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>What becomes immediately obvious is that event publication becomes more involved than using a simple queue.
+This is due to the desire for Event pre-allocation.
+It requires (at the lowest level) a 2-phase approach to message publication, i.e. claim the slot in the ring buffer and then publish the available data.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>It is also necessary to wrap publication in a <code>try</code>/<code>finally</code> block.</p>
+</div>
+<div class="paragraph">
+<p>If we claim a slot in the Ring Buffer (calling <code>RingBuffer#next()</code>) then we must publish this sequence.
+Failing to do so can result in corruption of the state of the Disruptor.</p>
+</div>
+<div class="paragraph">
+<p>Specifically, in the multi-producer case, this will result in the consumers stalling and being unable to recover without a restart.
+Therefore, it is recommended that either the lambda or <code>EventTranslator</code> APIs be used.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The final step is to wire the whole thing together.
+Whilst it is possible to wire up each component manually, this can be complicated and so a DSL is provided to simplify construction.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Some of the more complicated options are not available via the DSL; however, it is suitable for most circumstances.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Example using the legacy <code>LongEventProducer</code></div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kn">import</span> <span class="nn">com.lmax.disruptor.RingBuffer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lmax.disruptor.dsl.Disruptor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lmax.disruptor.examples.longevent.LongEvent</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lmax.disruptor.examples.longevent.LongEventFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lmax.disruptor.examples.longevent.LongEventHandler</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lmax.disruptor.util.DaemonThreadFactory</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.nio.ByteBuffer</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongEventMain</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span>
+    <span class="o">{</span>
+        <span class="nc">LongEventFactory</span> <span class="n">factory</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LongEventFactory</span><span class="o">();</span>
+
+        <span class="kt">int</span> <span class="n">bufferSize</span> <span class="o">=</span> <span class="mi">1024</span><span class="o">;</span>
+        <span class="nc">Disruptor</span><span class="o">&lt;</span><span class="nc">LongEvent</span><span class="o">&gt;</span> <span class="n">disruptor</span> <span class="o">=</span>
+                <span class="k">new</span> <span class="nc">Disruptor</span><span class="o">&lt;&gt;(</span><span class="n">factory</span><span class="o">,</span> <span class="n">bufferSize</span><span class="o">,</span> <span class="nc">DaemonThreadFactory</span><span class="o">.</span><span class="na">INSTANCE</span><span class="o">);</span>
+        <span class="n">disruptor</span><span class="o">.</span><span class="na">handleEventsWith</span><span class="o">(</span><span class="k">new</span> <span class="nc">LongEventHandler</span><span class="o">());</span>
+        <span class="n">disruptor</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+
+        <span class="nc">RingBuffer</span><span class="o">&lt;</span><span class="nc">LongEvent</span><span class="o">&gt;</span> <span class="n">ringBuffer</span> <span class="o">=</span> <span class="n">disruptor</span><span class="o">.</span><span class="na">getRingBuffer</span><span class="o">();</span>
+        <span class="nc">LongEventProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LongEventProducer</span><span class="o">(</span><span class="n">ringBuffer</span><span class="o">);</span>
+        <span class="nc">ByteBuffer</span> <span class="n">bb</span> <span class="o">=</span> <span class="nc">ByteBuffer</span><span class="o">.</span><span class="na">allocate</span><span class="o">(</span><span class="mi">8</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">long</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="kc">true</span><span class="o">;</span> <span class="n">l</span><span class="o">++)</span>
+        <span class="o">{</span>
+            <span class="n">bb</span><span class="o">.</span><span class="na">putLong</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">l</span><span class="o">);</span>
+            <span class="n">producer</span><span class="o">.</span><span class="na">onData</span><span class="o">(</span><span class="n">bb</span><span class="o">);</span>
+            <span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
 </div>
 </div>
 </div>
@@ -937,29 +1300,61 @@ This will create additional (unnecessary) garbage, so the call that passes the a
 <h4 id="_basic_tuning_options">Basic Tuning Options</h4>
 <div class="paragraph">
 <p>Using the above approach will work functionally in the widest set of deployment scenarios.
-However, if you able to make certain assumptions about the hardware and software environment that the Disruptor will run in then you can take advantage of a number of tuning options to improve performance.
-There are 2 main options for tuning, single vs. multiple producers and alternative wait strategies.</p>
+However, there are a number of tuning options that can be used to improve performance.</p>
+</div>
+<div class="paragraph">
+<p>The two main options for tuning are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#_single_vs_multiple_producers">Single vs. multiple producers</a>, <em>and</em></p>
+</li>
+<li>
+<p><a href="#_alternative_wait_strategies">Alternative wait strategies</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Both of these options are set when constructing a Disruptor:</p>
+</div>
+<div class="listingblock">
+<div class="title">Tuning the Disruptor</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongEventMain</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="kd">final</span> <span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="c1">//.....</span>
+        <span class="nc">Disruptor</span><span class="o">&lt;</span><span class="nc">LongEvent</span><span class="o">&gt;</span> <span class="n">disruptor</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Disruptor</span><span class="o">(</span>
+            <span class="n">factory</span><span class="o">,</span>
+            <span class="n">bufferSize</span><span class="o">,</span>
+            <span class="nc">DaemonThreadFactory</span><span class="o">.</span><span class="na">INSTANCE</span><span class="o">,</span>
+            <span class="nc">ProducerType</span><span class="o">.</span><span class="na">SINGLE</span><span class="o">,</span> <i class="conum" data-value="1"></i><b>(1)</b>
+            <span class="k">new</span> <span class="nf">BlockingWaitStrategy</span><span class="o">()</span> <i class="conum" data-value="2"></i><b>(2)</b>
+        <span class="o">);</span>
+        <span class="c1">//.....</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Use <code>ProducerType#SINGLE</code> to create a <code>SingleProducerSequencer</code>; use <code>ProducerType#MULTI</code> to create a <code>MultiProducerSequence</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Set the desired <code>WaitStrategy</code></td>
+</tr>
+</table>
 </div>
 <div class="sect4">
 <h5 id="_single_vs_multiple_producers">Single vs. Multiple Producers</h5>
 <div class="paragraph">
-<p>One of the best ways to improve performance in concurrent systems is to adhere to the <a href="http://mechanical-sympathy.blogspot.co.nz/2011/09/single-writer-principle.html">Single Writer Principle</a>, this applies to the Disruptor.
+<p>One of the best ways to improve performance in concurrent systems is to adhere to the <a href="https://mechanical-sympathy.blogspot.com/2011/09/single-writer-principle.html">Single Writer Principle</a>, this applies to the Disruptor.
 If you are in the situation where there will only ever be a single thread producing events into the Disruptor, then you can take advantage of this to gain additional performance.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">LongEventMain</span>
-{
-    <span class="directive">public</span> <span class="directive">static</span> <span class="type">void</span> main(<span class="predefined-type">String</span><span class="type">[]</span> args) <span class="directive">throws</span> <span class="exception">Exception</span>
-    {
-        <span class="comment">//.....</span>
-        <span class="comment">// Construct the Disruptor with a SingleProducerSequencer</span>
-        Disruptor&lt;LongEvent&gt; disruptor = <span class="keyword">new</span> Disruptor(
-            factory, bufferSize, DaemonThreadFactory.INSTANCE, ProducerType.SINGLE, <span class="keyword">new</span> BlockingWaitStrategy());
-        <span class="comment">//.....</span>
-    }
-}</code></pre>
-</div>
 </div>
 <div class="paragraph">
 <p>To give an indication of how much of a performance advantage can be achieved through this technique we can change the producer type in the OneToOne performance test.
@@ -1043,10 +1438,12 @@ Tests run on i7 Sandy Bridge MacBook Air.</p>
 <div class="sect4">
 <h5 id="_alternative_wait_strategies">Alternative Wait Strategies</h5>
 <div class="paragraph">
-<p>The default wait strategy used by the Disruptor is the <code>BlockingWaitStrategy</code>.
+<p>The default <code>WaitStrategy</code> used by the Disruptor is the <code>BlockingWaitStrategy</code>.
 Internally the <code>BlockingWaitStrategy</code> uses a typical lock and condition variable to handle thread wake-up.
-The <code>BlockingWaitStrategy</code> is the slowest of the available wait strategies, but is the most conservative with the respect to CPU usage and will give the most consistent behaviour across the widest variety of deployment options.
-However, again knowledge of the deployed system can allow for additional performance.</p>
+The <code>BlockingWaitStrategy</code> is the slowest of the available wait strategies, but is the most conservative with the respect to CPU usage and will give the most consistent behaviour across the widest variety of deployment options.</p>
+</div>
+<div class="paragraph">
+<p>Knowledge of the deployed system can allow for additional performance by choosing a more appropriate wait strategy:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1058,11 +1455,16 @@ However, again knowledge of the deployed system can allow for additional perform
 <div class="openblock">
 <div class="content">
 <div class="paragraph">
-<p>Like the <code>BlockingWaitStrategy</code> the <code>SleepingWaitStrategy</code> it attempts to be conservative with CPU usage, by using a simple busy wait loop, but uses a call to <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/LockSupport.html#parkNanos(long)" target="_blank" rel="noopener"><code>LockSupport.parkNanos(1)</code></a> in the middle of the loop.
-On a typical Linux system this will pause the thread for around 60µs.
-However it has the benefit that the producing thread does not need to take any action other increment the appropriate counter and does not require the cost of signalling a condition variable.
-However, the mean latency of moving the event between the producer and consumer threads will be higher.
-It works best in situations where low latency is not required, but a low impact on the producing thread is desired.
+<p>Like the <code>BlockingWaitStrategy</code> the <code>SleepingWaitStrategy</code> it attempts to be conservative with CPU usage by using a simple busy wait loop.
+The difference is that the <code>SleepingWaitStrategy</code> uses a call to <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/locks/LockSupport.html#parkNanos(long)" target="_blank" rel="noopener"><code>LockSupport.parkNanos(1)</code></a> in the middle of the loop.
+On a typical Linux system this will pause the thread for around 60µs.</p>
+</div>
+<div class="paragraph">
+<p>This has the benefits that the producing thread does not need to take any action other increment the appropriate counter and that it does not require the cost of signalling a condition variable.
+However, the mean latency of moving the event between the producer and consumer threads will be higher.</p>
+</div>
+<div class="paragraph">
+<p>It works best in situations where low latency is not required, but a low impact on the producing thread is desired.
 A common use case is for asynchronous logging.</p>
 </div>
 </div>
@@ -1077,10 +1479,15 @@ A common use case is for asynchronous logging.</p>
 <div class="openblock">
 <div class="content">
 <div class="paragraph">
-<p>The <code>YieldingWaitStrategy</code> is one of 2 Wait Strategies that can be use in low latency systems, where there is the option to burn CPU cycles with the goal of improving latency.
-The <code>YieldingWaitStrategy</code> will busy spin waiting for the sequence to increment to the appropriate value.
-Inside the body of the loop <code>Thread.yield()</code> will be called allowing other queued threads to run.
-This is the recommended wait strategy when need very high performance and the number of Event Handler threads is less than the total number of logical cores, e.g. you have hyper-threading enabled.</p>
+<p>The <code>YieldingWaitStrategy</code> is one of two <code>WaitStrategy</code>s that can be use in low-latency systems.
+It is designed for cases where there is the option to burn CPU cycles with the goal of improving latency.</p>
+</div>
+<div class="paragraph">
+<p>The <code>YieldingWaitStrategy</code> will busy spin, waiting for the sequence to increment to the appropriate value.
+Inside the body of the loop <code>Thread#yield()</code> will be called allowing other queued threads to run.</p>
+</div>
+<div class="paragraph">
+<p>This is the recommended wait strategy when you need very high performance, and the number of <code>EventHandler</code> threads is lower than the total number of logical cores, e.g. you have hyper-threading enabled.</p>
 </div>
 </div>
 </div>
@@ -1094,8 +1501,11 @@ This is the recommended wait strategy when need very high performance and the nu
 <div class="openblock">
 <div class="content">
 <div class="paragraph">
-<p>The <code>BusySpinWaitStrategy</code> is the highest performing Wait Strategy, but puts the highest constraints on the deployment environment.
-This wait strategy should only be used if the number of Event Handler threads is smaller than the number of physical cores on the box. E.g. hyper-threading should be disabled.</p>
+<p>The <code>BusySpinWaitStrategy</code> is the highest performing <code>WaitStrategy</code>.
+Like the <code>YieldingWaitStrategy</code>, it can be used in low-latency systems, but puts the highest constraints on the deployment environment.</p>
+</div>
+<div class="paragraph">
+<p>This wait strategy should only be used if the number of <code>EventHandler</code> threads is lower than the number of physical cores on the box, e.g. hyper-threading should be disabled.</p>
 </div>
 </div>
 </div>
@@ -1105,43 +1515,62 @@ This wait strategy should only be used if the number of Event Handler threads is
 <h4 id="_clearing_objects_from_the_ring_buffer">Clearing Objects From the Ring Buffer</h4>
 <div class="paragraph">
 <p>When passing data via the Disruptor, it is possible for objects to live longer than intended.
-To avoid this happening it may be necessary to clear out the event after processing it.
-If you have a single event handler clearing out the value within the same handler is sufficient.
+To avoid this happening it may be necessary to clear out the event after processing it.</p>
+</div>
+<div class="paragraph">
+<p>If you have a single event handler, clearing out the value within the same handler is sufficient.
 If you have a chain of event handlers, then you may need a specific handler placed at the end of the chain to handle clearing out the object.</p>
 </div>
 <div class="listingblock">
+<div class="title">Example <code>ObjectEvent</code></div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="type">class</span> <span class="class">ObjectEvent</span>&lt;T&gt;
-{
-    T val;
+<pre class="rouge highlight"><code data-lang="java"><span class="kd">class</span> <span class="nc">ObjectEvent</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span>
+<span class="o">{</span>
+    <span class="no">T</span> <span class="n">val</span><span class="o">;</span>
 
-    <span class="type">void</span> clear()
-    {
-        val = <span class="predefined-constant">null</span>;
-    }
-}
+    <span class="kt">void</span> <span class="nf">clear</span><span class="o">()</span>
+    <span class="o">{</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example <code>ClearingEventHandler</code></div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kn">import</span> <span class="nn">com.lmax.disruptor.EventHandler</span><span class="o">;</span>
 
-<span class="directive">public</span> <span class="type">class</span> <span class="class">ClearingEventHandler</span>&lt;T&gt; <span class="directive">implements</span> <span class="predefined-type">EventHandler</span>&lt;ObjectEvent&lt;T&gt;&gt;
-{
-    <span class="directive">public</span> <span class="type">void</span> onEvent(ObjectEvent&lt;T&gt; event, <span class="type">long</span> sequence, <span class="type">boolean</span> endOfBatch)
-    {
-        <span class="comment">// Failing to call clear here will result in the</span>
-        <span class="comment">// object associated with the event to live until</span>
-        <span class="comment">// it is overwritten once the ring buffer has wrapped</span>
-        <span class="comment">// around to the beginning.</span>
-        event.clear();
-    }
-}
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClearingEventHandler</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="nc">EventHandler</span><span class="o">&lt;</span><span class="nc">ObjectEvent</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;&gt;</span>
+<span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onEvent</span><span class="o">(</span><span class="nc">ObjectEvent</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">event</span><span class="o">,</span> <span class="kt">long</span> <span class="n">sequence</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">endOfBatch</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="n">event</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span> <i class="conum" data-value="1"></i><b>(1)</b>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Failing to call <code>clear()</code> here will result in the object associated with the event to live until it is overwritten.
+This will only happen once the ring buffer has wrapped around to the beginning.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Example using the <code>ClearingEventHandler</code></div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="nc">Disruptor</span><span class="o">&lt;</span><span class="nc">ObjectEvent</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="n">disruptor</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Disruptor</span><span class="o">&lt;&gt;(</span>
+                <span class="o">()</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">ObjectEvent</span><span class="o">&lt;&gt;(),</span> <span class="no">BUFFER_SIZE</span><span class="o">,</span> <span class="nc">DaemonThreadFactory</span><span class="o">.</span><span class="na">INSTANCE</span><span class="o">);</span>
 
-<span class="directive">public</span> <span class="directive">static</span> <span class="type">void</span> main(<span class="predefined-type">String</span><span class="type">[]</span> args)
-{
-    Disruptor&lt;ObjectEvent&lt;<span class="predefined-type">String</span>&gt;&gt; disruptor = <span class="keyword">new</span> Disruptor&lt;&gt;(
-        () -&gt; ObjectEvent&lt;<span class="predefined-type">String</span>&gt;(), bufferSize, DaemonThreadFactory.INSTANCE);
-
-    disruptor
-        .handleEventsWith(<span class="keyword">new</span> ProcessingEventHandler())
-        .then(<span class="keyword">new</span> ClearingObjectHandler());
-}</code></pre>
+        <span class="n">disruptor</span>
+                <span class="o">.</span><span class="na">handleEventsWith</span><span class="o">(</span><span class="k">new</span> <span class="nc">ProcessingEventHandler</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">then</span><span class="o">(</span><span class="k">new</span> <span class="nc">ClearingEventHandler</span><span class="o">());</span>
+    <span class="o">}</span></code></pre>
 </div>
 </div>
 </div>
@@ -1151,165 +1580,50 @@ If you have a chain of event handlers, then you may need a specific handler plac
 <div class="sect3">
 <h4 id="_dealing_with_large_batches">Dealing With Large Batches</h4>
 <div class="listingblock">
-<div class="title">Early Release Example</div>
+<div class="title">Example of "Early Release"</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">Unresolved directive in <span class="integer">10</span>_using_the_disruptor.adoc - include::/home/runner/work/disruptor/disruptor/src/test/java/com/lmax/disruptor/example/EarlyReleaseHandler.java<span class="type">[]</span></code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_developing_the_disruptor">Developing the Disruptor</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>A guide to checking out the code, building it and running the performance tests</p>
-</div>
-<div class="sect2">
-<h3 id="_getting_started_2">Getting Started</h3>
-<div class="paragraph">
-<p>We have switched from ant to gradle. More detailed instructions on how to work on the disruptor using gradle will follow. To get started list the available tasks by issuing:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="shell script">$ ./gradlew tasks</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>and take it from there.</p>
-</div>
-<div class="paragraph">
-<p>No gradle install is necessary as gradle is self-provisioning.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_basic_workflow">Basic workflow</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Check out the project locally to your machine</p>
-<div class="openblock">
-<div class="content">
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="shell script">$ cd ${MY_PROJECTS_HOME}
-$ git clone git://github.com/LMAX-Exchange/disruptor.git</code></pre>
-</div>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Build a distribution</p>
-<div class="openblock">
-<div class="content">
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="shell script">$ cd ${MY_PROJECTS_HOME}/disruptor
-$ ./gradlew</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>As a result of the build you should find the following files:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>${MY_PROJECTS_HOME}/disruptor/build/libs/disruptor-{VERSION_NUMBER}-SNAPSHOT.jar</code></p>
-</li>
-<li>
-<p><code>${MY_PROJECTS_HOME}/disruptor/build/libs/disruptor-{VERSION_NUMBER}-SNAPSHOT-javadoc.jar</code></p>
-</li>
-<li>
-<p><code>${MY_PROJECTS_HOME}/disruptor/build/libs/disruptor-{VERSION_NUMBER}-SNAPSHOT-sources.jar</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Run the performance tests</p>
-<div class="openblock">
-<div class="content">
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="shell script">$ cd ${MY_PROJECTS_HOME}/disruptor
-$ ./gradlew perfJar
-$ java -cp build/libs/disruptor-perf-3.3.0.jar [test name, e.g. com.lmax.disruptor.sequenced.OneToOneSequencedThroughputTest]</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>There are also JMH Benchmarks for testing the performance of the Disruptor, these can be run with a gradle command</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="shell script">$ ./gradlew jmh</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Some JMH Benchmarks can be run on machines with isolated cpus to get results with less error.</p>
-</div>
-<div class="paragraph">
-<p>Assuming a system set up with isolated cores, e.g.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="shell script">$ cat /proc/cmdline
-... isolcpus=31,33,35,37,39,41,43,45,47,7,9,11,13,15,17,19,21,23 nohz_full=31,33,35,37,39,41,43,45,47,7,9,11,13,15,17,19,21,23 ...</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>And the system may have a <code>cpuset</code> setup to split application threads from sharing cpus with kernel code:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="shell script">$ cat /cpusets/app/cpus
-5,7-23,29,31-47</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You can run the benchmarks taskset to some of those cpus so that Java threads (like GC and complication) run on some cores
-and JMH Benchmark threads are pinned to isolated cpus using the following command (which is running just the one benchmark, <code>MultiProducersSequencerBenchmark</code>):</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="shell script">$ cat runBenchmarks.sh
-#!/bin/bash
-JAVA_HOME=/var/lib/jenkins/workspace/_beant/cache/jdk11/1.11.0.6_zulu11.37.17_ca-1
-ISOLATED_CPUS=7,9,11,13,15,17,19,21,23 $JAVA_HOME/bin/java -jar ./disruptor-4.0.0-SNAPSHOT-jmh.jar -rf json -rff /tmp/jmh-result.json -foe true -v NORMAL -prof perf -jvmArgsPrepend -Xmx256m -jvmArgsPrepend -Xms256m -jvmArgsPrepend -XX:MaxDirectMemorySize=1g $@
+<pre class="rouge highlight"><code data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EarlyReleaseHandler</span> <span class="kd">implements</span> <span class="nc">EventHandler</span><span class="o">&lt;</span><span class="nc">LongEvent</span><span class="o">&gt;</span>
+<span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">Sequence</span> <span class="n">sequenceCallback</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">batchRemaining</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span>
 
-$ sudo cset proc -v --exec app -- taskset -c 5,8,10,12,14,16,18,20,22,29,32,34,36,38,40,42,44,46 ./runBenchmarks.sh MultiProducersSequencerBenchmark</code></pre>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setSequenceCallback</span><span class="o">(</span><span class="kd">final</span> <span class="nc">Sequence</span> <span class="n">sequenceCallback</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">sequenceCallback</span> <span class="o">=</span> <span class="n">sequenceCallback</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onEvent</span><span class="o">(</span><span class="kd">final</span> <span class="nc">LongEvent</span> <span class="n">event</span><span class="o">,</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">sequence</span><span class="o">,</span> <span class="kd">final</span> <span class="kt">boolean</span> <span class="n">endOfBatch</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="n">processEvent</span><span class="o">(</span><span class="n">event</span><span class="o">);</span>
+
+        <span class="kt">boolean</span> <span class="n">logicalChunkOfWorkComplete</span> <span class="o">=</span> <span class="n">isLogicalChunkOfWorkComplete</span><span class="o">();</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">logicalChunkOfWorkComplete</span><span class="o">)</span>
+        <span class="o">{</span>
+            <span class="n">sequenceCallback</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">sequence</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="n">batchRemaining</span> <span class="o">=</span> <span class="n">logicalChunkOfWorkComplete</span> <span class="o">||</span> <span class="n">endOfBatch</span> <span class="o">?</span> <span class="mi">20</span> <span class="o">:</span> <span class="n">batchRemaining</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">isLogicalChunkOfWorkComplete</span><span class="o">()</span>
+    <span class="o">{</span>
+        <span class="c1">// Ret true or false based on whatever criteria is required for the smaller</span>
+        <span class="c1">// chunk.  If this is doing I/O, it may be after flushing/syncing to disk</span>
+        <span class="c1">// or at the end of DB batch+commit.</span>
+        <span class="c1">// Or it could simply be working off a smaller batch size.</span>
+
+        <span class="k">return</span> <span class="o">--</span><span class="n">batchRemaining</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">processEvent</span><span class="o">(</span><span class="kd">final</span> <span class="nc">LongEvent</span> <span class="n">event</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="c1">// Do processing</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
 </div>
 </div>
-</div>
-</div>
-</li>
-<li>
-<p>Development tips</p>
-<div class="openblock">
-<div class="content">
-<div class="paragraph">
-<p>This project uses GitHub Actions for CI which runs the gradle build task to check the project can be built on each
-commit/pull request.</p>
-</div>
-<div class="paragraph">
-<p>So that you don&#8217;t push changes that will fail the simple test &amp; check steps we would suggest adding the git pre-commit
-hook which will block any commit you try to do locally if the code fails these steps.</p>
-</div>
-<div class="paragraph">
-<p>The git hook can be set up using the following gradle task:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="shell script">$ ./gradlew setUpGitHooks</code></pre>
-</div>
-</div>
-</div>
-</div>
-</li>
-</ol>
 </div>
 </div>
 </div>
@@ -1341,101 +1655,97 @@ hook which will block any commit you try to do locally if the code fails these s
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_batch_rewind">Batch Rewind</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_the_feature">The Feature</h3>
+<div class="paragraph">
+<p>When using the <code>BatchEventProcessor</code> to handle events as batches, there is a feature available that can be used to recover from an exception named "Batch Rewind".</p>
+</div>
+<div class="paragraph">
+<p>If something goes wrong while handling an event that is recoverable, the user can throw a <code>RewindableException</code>. This will invoke the <code>BatchRewindStrategy</code> instead of the usual <code>ExceptionHandler</code> to decide whether the sequence number should rewind back to the beginning of the batch to be reattempted or rethrow and delegate to the <code>ExceptionHandler</code>.</p>
+</div>
+<div class="paragraph">
+<p>e.g.</p>
+</div>
+<div class="paragraph">
+<p>When using the <code>SimpleBatchRewindStrategy</code> (which will always rewind) then the <code>BatchEventProcessor</code> receives a batch from 150 &#8594; 155, but a temporary failure happens on sequence 153 (which throws a <code>RewindableException</code>). The events processed will look like the following&#8230;&#8203;</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>150, 151, 152, 153(failed -&gt; rewind), 150, 151, 152, 153(succeeded this time), 154, 155</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The default <code>BatchRewindStrategy</code> is the <code>SimpleBatchRewindStrategy</code> but different strategies can be provided to the <code>BatchEventProcessor</code> like so&#8230;&#8203;</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>        batchEventProcessor.setRewindStrategy(batchRewindStrategy);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_use_case">Use Case</h3>
+<div class="paragraph">
+<p>This can be very useful when batches are handled as database transactions. So the start of a batch starts a transaction, events are handled as statements, and only committed at the end of a batch.</p>
+</div>
+<div class="paragraph">
+<p>Happy case</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>Batch start -&gt; START TRANSACTION;
+Event 1 -&gt;     insert a row;
+Event 2 -&gt;     insert a row;
+Event 3 -&gt;     insert a row;
+Batch end -&gt;   COMMIT;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sad case without Batch Rewind</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>Batch start -&gt; START TRANSACTION;
+Event 1 -&gt;     insert a row;
+Event 2 -&gt;     DATABASE has a blip and can not commit
+Throw error -&gt; ROLLBACK;
+User needs to explcitily reattempt the batch or choose to abandon the batch</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sad case with Batch Rewind</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>Batch start -&gt;               START TRANSACTION;
+Event 1 -&gt;                   insert a row;
+Event 2 -&gt;                   DATABASE has a blip and can not insert
+Throw RewindableException -&gt; ROLLBACK;
+Batch start -&gt;               START TRANSACTION;
+Event 1 -&gt;                   insert a row;
+Event 2 -&gt;                   insert a row;
+Event 3 -&gt;                   insert a row;
+Batch end -&gt;                 COMMIT;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. in low-latency C/C++ systems,heavy memory allocation is also problematic due to the contention that be placed on the memory allocator
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 4.0.0-SNAPSHOT<br>
-Last updated 2021-04-08 12:31:52 UTC
+Last updated 2024-07-18 12:36:22 UTC
 </div>
 </div>
-<style>
-/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
-pre.CodeRay{background:#f7f7f8}
-.CodeRay .line-numbers{border-right:1px solid currentColor;opacity:.35;padding:0 .5em 0 0}
-.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
-.CodeRay .line-numbers strong{color:#000}
-table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
-table.CodeRay td{vertical-align:top;line-height:inherit}
-table.CodeRay td.line-numbers{text-align:right}
-table.CodeRay td.code{padding:0 0 0 .75em}
-.CodeRay .debug{color:#fff !important;background:#000080 !important}
-.CodeRay .annotation{color:#007}
-.CodeRay .attribute-name{color:#000080}
-.CodeRay .attribute-value{color:#700}
-.CodeRay .binary{color:#509}
-.CodeRay .comment{color:#998;font-style:italic}
-.CodeRay .char{color:#04d}
-.CodeRay .char .content{color:#04d}
-.CodeRay .char .delimiter{color:#039}
-.CodeRay .class{color:#458;font-weight:bold}
-.CodeRay .complex{color:#a08}
-.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
-.CodeRay .color{color:#099}
-.CodeRay .class-variable{color:#369}
-.CodeRay .decorator{color:#b0b}
-.CodeRay .definition{color:#099}
-.CodeRay .delimiter{color:#000}
-.CodeRay .doc{color:#970}
-.CodeRay .doctype{color:#34b}
-.CodeRay .doc-string{color:#d42}
-.CodeRay .escape{color:#666}
-.CodeRay .entity{color:#800}
-.CodeRay .error{color:#808}
-.CodeRay .exception{color:inherit}
-.CodeRay .filename{color:#099}
-.CodeRay .function{color:#900;font-weight:bold}
-.CodeRay .global-variable{color:#008080}
-.CodeRay .hex{color:#058}
-.CodeRay .integer,.CodeRay .float{color:#099}
-.CodeRay .include{color:#555}
-.CodeRay .inline{color:#000}
-.CodeRay .inline .inline{background:#ccc}
-.CodeRay .inline .inline .inline{background:#bbb}
-.CodeRay .inline .inline-delimiter{color:#d14}
-.CodeRay .inline-delimiter{color:#d14}
-.CodeRay .important{color:#555;font-weight:bold}
-.CodeRay .interpreted{color:#b2b}
-.CodeRay .instance-variable{color:#008080}
-.CodeRay .label{color:#970}
-.CodeRay .local-variable{color:#963}
-.CodeRay .octal{color:#40e}
-.CodeRay .predefined{color:#369}
-.CodeRay .preprocessor{color:#579}
-.CodeRay .pseudo-class{color:#555}
-.CodeRay .directive{font-weight:bold}
-.CodeRay .type{font-weight:bold}
-.CodeRay .predefined-type{color:inherit}
-.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
-.CodeRay .key{color:#808}
-.CodeRay .key .delimiter{color:#606}
-.CodeRay .key .char{color:#80f}
-.CodeRay .value{color:#088}
-.CodeRay .regexp .delimiter{color:#808}
-.CodeRay .regexp .content{color:#808}
-.CodeRay .regexp .modifier{color:#808}
-.CodeRay .regexp .char{color:#d14}
-.CodeRay .regexp .function{color:#404;font-weight:bold}
-.CodeRay .string{color:#d20}
-.CodeRay .string .string .string{background:#ffd0d0}
-.CodeRay .string .content{color:#d14}
-.CodeRay .string .char{color:#d14}
-.CodeRay .string .delimiter{color:#d14}
-.CodeRay .shell{color:#d14}
-.CodeRay .shell .delimiter{color:#d14}
-.CodeRay .symbol{color:#990073}
-.CodeRay .symbol .content{color:#a60}
-.CodeRay .symbol .delimiter{color:#630}
-.CodeRay .tag{color:#008080}
-.CodeRay .tag-special{color:#d70}
-.CodeRay .variable{color:#036}
-.CodeRay .insert{background:#afa}
-.CodeRay .delete{background:#faa}
-.CodeRay .change{color:#aaf;background:#007}
-.CodeRay .head{color:#f8f;background:#505}
-.CodeRay .insert .insert{color:#080}
-.CodeRay .delete .delete{color:#800}
-.CodeRay .change .change{color:#66f}
-.CodeRay .head .head{color:#f4f}
-</style>
 </body>
 </html>
