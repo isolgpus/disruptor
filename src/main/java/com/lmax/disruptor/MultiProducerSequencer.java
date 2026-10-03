@@ -116,24 +116,53 @@ public final class MultiProducerSequencer extends AbstractSequencer
             throw new IllegalArgumentException("n must be > 0 and < bufferSize");
         }
 
-        long current = cursor.getAndAdd(n);
 
-        long nextSequence = current + n;
-        long wrapPoint = nextSequence - bufferSize;
-        long cachedGatingSequence = gatingSequenceCache.get();
+        final long observed = cursor.get();
+        final long cachedGating = gatingSequenceCache.get();
 
-        if (wrapPoint > cachedGatingSequence || cachedGatingSequence > current)
+        // Fast path: the cached gating sequence shows room, so claim unconditionally with a single getAndAdd.
+        // only publishers competing with other publishers, ignoring the consumer
+        if (observed + n - bufferSize <= cachedGating && cachedGating <= observed)
         {
-            long gatingSequence;
-            while (wrapPoint > (gatingSequence = Util.getMinimumSequence(gatingSequences, current)))
+            final long current = cursor.getAndAdd(n);
+            final long nextSequence = current + n;
+            final long wrapPoint = nextSequence - bufferSize;
+            final long cachedGatingSequence = gatingSequenceCache.get();
+
+            if (wrapPoint > cachedGatingSequence || cachedGatingSequence > current)
+            {
+                // Other producers claimed between our check and getAndAdd, so we're beyond capacity; wait it out.
+                long gatingSequence;
+                while (wrapPoint > (gatingSequence = Util.getMinimumSequence(gatingSequences, current)))
+                {
+                    LockSupport.parkNanos(1L); // TODO, should we spin based on the wait strategy?
+                }
+
+                gatingSequenceCache.set(gatingSequence);
+            }
+
+            return nextSequence;
+        }
+
+        // Slow path: near (or at) full. Only claim once capacity is confirmed, so a waiting producer never holds an
+        // unpublished sequence that would stall the consumer for everyone else.
+        while (true)
+        {
+            final long current = cursor.get();
+            final long nextSequence = current + n;
+            final long wrapPoint = nextSequence - bufferSize;
+            final long gatingSequence = Util.getMinimumSequence(gatingSequences, current);
+            gatingSequenceCache.set(gatingSequence);
+
+            if (wrapPoint > gatingSequence)
             {
                 LockSupport.parkNanos(1L); // TODO, should we spin based on the wait strategy?
             }
-
-            gatingSequenceCache.set(gatingSequence);
+            else if (cursor.compareAndSet(current, nextSequence))
+            {
+                return nextSequence;
+            }
         }
-
-        return nextSequence;
     }
 
     /**
